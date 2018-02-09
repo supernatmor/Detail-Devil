@@ -41,7 +41,8 @@ const CompanySchema = new Schema({
       Name: { type: String },
       Price: { type: String },
       Description: { type: String },
-      Time: { type: Date }
+      Time: { type: Date },
+      required: false
     },
     required: false
   }
