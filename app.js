@@ -1,5 +1,8 @@
 require("dotenv").config();
 var express = require('express');
+
+var exphbs = require('express-handlebars');
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -11,9 +14,16 @@ var index = require('./routes/html');
 
 var app = express();
 
+app.engine('.handlebars', exphbs({
+  defaultLayout: 'main',
+  layoutsDir: app.get('views') + '/layouts',
+  partialsDir: [app.get('views') + '/partials']
+}));
+app.set('view engine', '.handlebars')
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'hbs');
 const environment = process.env.NODE_ENV;//set env variable to node_devlopment - changes db location
 // console.log(process.env); //logs entire .env object
 console.log(process.env[environment + '_db']); //logs out current database
