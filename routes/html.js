@@ -9,12 +9,12 @@ router.get('/', function (req, res, next) {
 
 // GET Detailers page (FILL IN CORRECT INFO IF NECESSARY)
 router.get('/detail', function (req, res, next) {
-  res.render('detail', { title: 'Detail' });
+  res.render('detail', { message: 'Detail' });
 });
 
 // GET Booking Page
 router.get('/booking', function (req, res, next) {
-  res.render('booking', { title: 'Booking' });
+  res.render('booking', { message: 'Booking' });
 });
 
 // API routes
