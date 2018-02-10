@@ -535,19 +535,20 @@ font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
 }
 
 
-/* LOGIN OVERLAY
+/* LOGIN OVERLAY */
+
 #overlay {
     position: fixed;
-    display: none;
+    display: block;
     width: 100%;
     height: 100%;
     top: 0; 
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.842);
     z-index: 2;
-} */
+}
 
 
 
@@ -558,16 +559,18 @@ LOGIN POPUP BOX
   font-size: 0.8rem;
   cursor: pointer;
   z-index: 3;
- }
+}
 
 .form-light [type="radio"] + label,
 .form-light [type="checkbox"] + label {
-  font-size: 0.8rem; }
+  font-size: 0.8rem; 
+}
 
 .form-light [type="checkbox"] + label:before {
   top: 2px;
   width: 15px;
-  height: 15px; }
+  height: 15px; 
+}
 
 .form-light input[type="checkbox"] + label:before {
   content: '';
@@ -580,7 +583,8 @@ LOGIN POPUP BOX
   border-radius: 1px;
   margin-top: 2px;
   -webkit-transition: 0.2s;
-  transition: 0.2s; }
+  transition: 0.2s; 
+}
 
 .form-light input[type="checkbox"]:checked + label:before {
   top: -4px;
@@ -596,28 +600,40 @@ LOGIN POPUP BOX
   -webkit-backface-visibility: hidden;
   -webkit-transform-origin: 100% 100%;
   -ms-transform-origin: 100% 100%;
-  transform-origin: 100% 100%; }
+  transform-origin: 100% 100%; 
+}
 
 .form-light .footer {
   border-bottom-left-radius: .3rem;
-  border-bottom-right-radius: .3rem; }
+  border-bottom-right-radius: .3rem; 
+}
   */
             
 
 
-/* SIGNUP POPUP BOX
+/* SIGNUP POPUP BOX */
 
 .form-light .font-small {
-  font-size: 0.8rem; }
+  font-size: 0.8rem;
+  width: 500px;
+  height: 700px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  display: block;
+}
 
 .form-light [type="radio"] + label,
 .form-light [type="checkbox"] + label {
-  font-size: 0.8rem; }
+  font-size: 0.8rem; 
+}
 
 .form-light [type="checkbox"] + label:before {
   top: 2px;
   width: 15px;
-  height: 15px; }
+  height: 15px; 
+}
 
 .form-light input[type="checkbox"] + label:before {
   content: '';
@@ -630,7 +646,8 @@ LOGIN POPUP BOX
   border-radius: 1px;
   margin-top: 2px;
   -webkit-transition: 0.2s;
-  transition: 0.2s; }
+  transition: 0.2s; 
+}
 
 .form-light input[type="checkbox"]:checked + label:before {
   top: -4px;
@@ -652,4 +669,3 @@ LOGIN POPUP BOX
   border-bottom-left-radius: .3rem;
   border-bottom-right-radius: .3rem; 
 }
- */
