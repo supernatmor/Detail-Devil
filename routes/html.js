@@ -18,6 +18,6 @@ router.get('/booking', function (req, res, next) {
 });
 
 // API routes
-// router.use("/api", api);
+router.use("/api", api);
 
 module.exports = router;
