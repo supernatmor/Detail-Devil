@@ -1,7 +1,241 @@
-<header>
-    <div>Testing</div>
-</header>
+<div class="container">
+    <div class="row">
+        <h1>You've Got Hell to Pay</h1>
 
-<section>
-    <p>{{message}}</p>
-</section>
+        <h2>Order Review (Not Yet Booked):</h2>
+        <p class="bg-success">Company Name: Detail Demon</p>
+        <p class="bg-success">Company Location: Concord, NC</p>
+        <p class="bg-success">Package Selected: Platinum Package</p>
+        <p class="bg-success">Package Summary: Interior and exterior cleaning using only a toothbrush. If we miss a spot, guaranteed full refund.</p>
+        <p class="bg-success">Package Price: $99</p>
+        <p class="bg-success">Scheduled Date and Time: Monday, June 9, 2018 10:00am</p>
+        <p class="bg-success">Booking Name: John Doe</p>
+        <h3 class="bg-success">Order Total: $99</h3>
+        <hr/>
+
+        <div class="form-group col-md-12 bg-primary">
+            <div class="control-group">
+                <div class="controls">
+                    <label class="control-label" for="billinginformation">Billing Information</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <div class="control-group">
+                <span class="required-lbl">* </span>
+                <label class="control-label" for="firstname">First Name</label>
+                <div class="controls">
+                    <input id="firstname" name="firstname" type="text" placeholder="" class="form-control" required="">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <div class="control-group">
+                <span class="required-lbl">* </span>
+                <label class="control-label" for="lastname">Last Name</label>
+                <div class="controls">
+                    <input id="lastname" name="lastname" type="text" placeholder="" class="form-control" required="">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <div class="control-group">
+                <span class="required-lbl">* </span>
+                <label class="control-label" for="cardnumber">Card Number</label>
+                <div class="controls">
+                    <input id="cardnumber" name="cardnumber" type="text" placeholder="" class="form-control" required="">
+                </div>
+            </div>
+        </div>
+
+        {{!-- Insert accepted card logos --}} {{!-- Insert Paypal icon? --}} {{!-- Insert EXCHANGE FOR SOUL --}}
+
+        <div class="form-group col-md-6 card-expiration">
+            <div class="control-group col-md-4">
+                <span class="required-lbl">* </span>
+                <label class="control-label" for="cvv">CVV</label>
+                <div class="controls">
+                    <input id="cvv" name="cvv" type="text" placeholder="" class="form-control" required="">
+                </div>
+            </div>
+            <div class="control-group col-md-4">
+                <div class="control-group">
+                    <label class="control-label" for="month">Expiration Date</label>
+                    <div class="controls">
+                        <select id="month" name="month" class="input-xlarge">
+                            <option>Select Month</option>
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                            <option>04</option>
+                            <option>05</option>
+                            <option>06</option>
+                            <option>07</option>
+                            <option>08</option>
+                            <option>09</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group col-md-4">
+                <div class="control-group">
+                    <label class="control-label" for="selectyear"></label>
+                    <div class="controls">
+                        <select id="selectyear" name="selectyear" class="input-xlarge">
+                            <option>Select Year</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group col-md-6">
+        </div>
+
+        <hr/>
+
+        <div class="form-group col-md-12 bg-primary">
+            <label class="control-label" for="billinginformation">Billing Address</label>
+        </div>
+
+        <div class="form-group col-md-6">
+            <span class="required-lbl">* </span>
+            <label class="control-label" for="billingaddress1">Address 1</label>
+            <div class="controls">
+                <input id="billingaddress1" name="billingaddress1" type="text" placeholder="" class="form-control" required="">
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label class="control-label" for="billingaddress2">Address 2</label>
+            <div class="controls">
+                <input id="billingaddress2" name="billingaddress2" type="text" placeholder="" class="form-control" required="">
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <span class="required-lbl">* </span>
+            <label class="control-label" for="billingcountry">Country</label>
+            <div class="controls">
+                <div class="controls">
+                    <select id="billingcountry" name="billingcountry" class="input-xlarge">
+                        <option>Please Select</option>
+                        <option>United States</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <span class="required-lbl">* </span>
+            <label class="control-label" for="billingstate">State</label>
+            <div class="controls">
+                <select id="billingstate" name="billingstate" class="input-xlarge">
+                    <option>Please Select</option>
+                    <option>North Carolina</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <span class="required-lbl">* </span>
+            <label class="control-label" for="billingcity">City</label>
+            <div class="controls">
+                <input id="billingcity" name="billingcity" type="text" placeholder="" class="form-control" required="">
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <span class="required-lbl">* </span>
+            <label class="control-label" for="billingzipcode">Zip Code</label>
+            <div class="controls">
+                <input id="billingzipcode" name="billingzipcode" type="text" placeholder="" class="form-control" required="">
+            </div>
+        </div>
+
+        <div class="form-group col-md-12 bg-primary">
+            <label class="control-label" for="contactinformation">Contact Information:</label>
+        </div>
+
+        <div class="form-group col-md-6">
+            <span class="required-lbl">* </span>
+            <label class="control-label" for="emailaddress">Email Address</label>
+            <div class="controls">
+                <input id="email" name="email" type="email" placeholder="" class="form-control" required="">
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label class="control-label" for="phone">Phone</label>
+            <div class="controls">
+                <input id="phone" name="phone" type="number" placeholder="" class="form-control" required="">
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="control-group confirm-btn">
+                <label class="control-label" for="submitorderbtn"></label>
+                <div class="controls">
+                    <button id="submitorderbtn" name="submitorderbtn" class="btn btn-primary">Book it!</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+
+
+{{!-- Confirmation modal --}} {{!--
+<div class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Booking Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>A copy of your receipt will be sent to the provided email.</p>
+                <p>Order Summary:</p>
+                <p class="bg-success">Confirmation Number: 12345678</p>
+                <p class="bg-success">Company Name: Detail Demon</p>
+                <p class="bg-success">Company Location: Concord, NC</p>
+                <p class="bg-success">Package Selected: Platinum Package</p>
+                <p class="bg-success">Package Summary: Interior and exterior cleaning using only a toothbrush. If we miss a spot, guaranteed full
+                    refund.</p>
+                <p class="bg-success">Package Price: $99</p>
+                <p class="bg-success">Scheduled Date and Time: Monday, June 9, 2018 10:00am</p>
+                <p class="bg-success">Booking Name: John Doe</p>
+                <h3 class="bg-success">Order Total: $99</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div> --}}
