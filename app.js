@@ -10,7 +10,6 @@ const mongoose = require("mongoose");
 ////////////////////////GHENI'S///////////////////////////////////////////////
 const session = require('express-session'),
 const MongoDBStore = require('connect-mongodb-session')(session),
-const bcrypt = require('bcrypt'),
 //////////////////////////////////////////////////////////////////////////////
 const index = require("./routes/html");
 //const users = require('./routes/users');
@@ -38,9 +37,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-////////////GHENI'S/////////////////////////
-app.use(expressSanitizer());
-///////////////////////////////////////////
+
 
 // app.use("/", index);
 //app.use('/users', users);
@@ -48,7 +45,7 @@ app.use(expressSanitizer());
 ////////////////GHENI'S////////////////////
 const store = new MongoDBStore(    
     {
-        uri: 'mongodb://localhost/detais',
+        uri: process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB",
         collection: 'MySessions'
     });
 app.use(session({       
