@@ -7,7 +7,10 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
+////////////////////////GHENI'S///////////////////////////////////////////////
+const session = require('express-session'),
+const MongoDBStore = require('connect-mongodb-session')(session),
+//////////////////////////////////////////////////////////////////////////////
 const index = require("./routes/html");
 //const users = require('./routes/users');
 
@@ -35,8 +38,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+
 // app.use("/", index);
 //app.use('/users', users);
+
+////////////////GHENI'S////////////////////
+const store = new MongoDBStore(    
+    {
+        uri: process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB",
+        collection: 'MySessions'
+    });
+app.use(session({       
+    secret: "I love New York",
+    resave: true,
+    saveUninitialized: true,
+    store: store
+}));
+////////////////////////////////////////////
+
 
 //////////////////////
 //////// DALE ////////
