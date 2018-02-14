@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Home' });
 });
 
-// GET Detailers page (FILL IN CORRECT INFO IF NECESSARY)
+// GET Detailers page 
 router.get('/detail', function (req, res, next) {
   res.render('detail', { message: 'Detail' });
 });
@@ -15,6 +15,11 @@ router.get('/detail', function (req, res, next) {
 // GET Booking Page
 router.get('/booking', function (req, res, next) {
   res.render('booking', { message: 'Booking' });
+});
+
+// GET Login
+router.get("/login", function (req, res, next) {
+  res.render("login");
 });
 
 // API routes
