@@ -1,12 +1,14 @@
 import React, { createElement } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import Main from './Main';
 import registerServiceWorker from './registerServiceWorker';
 
+const root = document.getElementById('root');
 
-ReactDOM.render(createElement(<Main />), document.getElementById('root'));//
-registerServiceWorker();
+if (root) {
+    ReactDOM.render(<Main />, document.getElementById('root'));//
+    registerServiceWorker();
+}
 
 
 

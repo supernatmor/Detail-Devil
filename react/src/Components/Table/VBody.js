@@ -16,7 +16,7 @@ export const VBody = props =>{
                   {props.v.map( (Vendor, index) => {
                   return (
                     <tr>
-                      <td><a>{Vendor.Name}</a></td>
+                      <td><a onClick={() => props.handleVendorClick(Vendor.Packages)}>{Vendor.Name}</a></td>
                       <td>{Vendor.Location}</td>
                       <td>{Vendor.Packages[0].Price}</td>
                       <td>{Vendor.Packages[0].timeToComplete}</td>

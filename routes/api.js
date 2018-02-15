@@ -9,7 +9,7 @@ let password = "canihazpazwerd";
 router.route("/detail").get(companyController.findAll);
 
 // Create User
-router.route("/user/create").post(userController.createUser(user, password));
+// router.route("/user/create").post(userController.createUser(user, password));
 
 // User Login
 router.route("user/:id").get(userController.userLogin);

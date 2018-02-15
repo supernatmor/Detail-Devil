@@ -4,7 +4,7 @@ export const PBody = props =>{
   return (
 
 <div>
-    
+    <a onClick={() => props.backToVendors}> Back </a>
     <table className="table">
               <thead>
                       <tr>
@@ -19,7 +19,7 @@ export const PBody = props =>{
                 {props.p.map( (Package, index) => {
                   return (
                     <tr>
-                      <td><a>{Package.Name}</a></td>
+                      <td><a onClick={() => props.handlePackageClick(Package)}>{Package.Name}</a></td>
                       <td>{Package.Description}</td>
                       <td>{Package.Price}</td>
                       <td>{Package.timeToComplete}</td>
