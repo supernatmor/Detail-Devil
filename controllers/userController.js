@@ -9,16 +9,16 @@ const verifyUser = require("../helpers/verify");
 
 module.exports = {
   /////////////////////////////////////CREATING A NEW UESR AND POSTING TO DB/////////////////////////////
-  createUser: function(user, password) {
-    db.User.create(newUser, function(err, user) {
+  createUser: function (newUser, res) {
+    db.User.create(newUser, function (err, user) {
       if (err) throw err;
-      console.log(req.session);
-      req.session.user = user;
-      res.redirect("/profile");
+      // console.log(req.session);
+      // req.session.user = user;
+      res.redirect("/");
     });
   },
   ////////////////////////////LOGIN CONTROLLER/////////////////////////////////////////////////////
-  userLogin: async function(req, res, next) {
+  userLogin: async function (req, res, next) {
     const {
       //// SAME THING FOR THIS AS PREVIOUS MIGHT NEED HELPER BUT SOME DEF IN CONTROLLER LINES 95-109
       email,
@@ -38,7 +38,7 @@ module.exports = {
     } /// LINE 109
   },
   /////////////////////////////////////////lOADING USER PROFILE//////////////////////
-  userProfile: function(req, res) {
+  userProfile: function (req, res) {
     const {
       //// THIS PART WILL PROBABLY BE CONTROLLER FROM LINE 85-90 (WE MAY NEED TO DO UTIL HELPER)
       user
