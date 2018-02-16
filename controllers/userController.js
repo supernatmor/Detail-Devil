@@ -14,7 +14,7 @@ module.exports = {
       if (err) throw err;
       // console.log(req.session);
       // req.session.user = user;
-      res.redirect("/");
+      // res.redirect("/");
     });
   },
   ////////////////////////////LOGIN CONTROLLER/////////////////////////////////////////////////////
