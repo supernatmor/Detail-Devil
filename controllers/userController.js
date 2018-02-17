@@ -47,7 +47,7 @@ module.exports = {
   
   
   ////////////////////////////LOGIN CONTROLLER/////////////////////////////////////////////////////
-  userLogin:  async (oldUser, returnToRoute) => {
+  userLogin:  async (oldUser, returnToRoute, next) => {
     
     const {
       email,
@@ -55,17 +55,13 @@ module.exports = {
     } = oldUser;
     
     try {
-      const isValidObject = await verifyUser(email, password);
-    }
-      
-      
-      let error;
-      
-      if (!isValidObject.isValid) {
-        error = new Error("Invalid request");
-      }
-
+      const isValidObject = await verifyUser(email, password, next);
+      if (!isValidObject.isValid) throw new Error("Email or passwords don't match request");
       returnToRoute(null, isValidObject.user);
+    } catch(error) {
+      error.message = "Email or passwords don't match request";
+      next(error.message);
+    }  
   },
   
   

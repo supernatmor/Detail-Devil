@@ -4,7 +4,7 @@ const api = require('./api');
 
 // GET home page
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Home' });
+  res.render('index', { title: 'Home'} );
 });
 
 // GET Detailers page 
