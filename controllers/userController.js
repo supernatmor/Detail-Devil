@@ -9,12 +9,11 @@ const verifyUser = require("../helpers/verify");
 
 module.exports = {
   /////////////////////////////////////CREATING A NEW UESR AND POSTING TO DB/////////////////////////////
-  createUser: function (newUser, res) {
-    db.User.create(newUser, function (err, user) {
-      if (err) throw err;
-      // console.log(req.session);
-      // req.session.user = user;
-      // res.redirect("/");
+  createUser: function(newUser, returnToRoute) {
+
+
+    db.User.create(newUser, function(err, user, next) {
+      returnToRoute(err, user);
     });
   },
   ////////////////////////////LOGIN CONTROLLER/////////////////////////////////////////////////////

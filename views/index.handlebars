@@ -228,13 +228,27 @@
 
 </section> --}}
 
-<section>
-    <form action="/api/user/create" method="POST">
-        <input type="text" id="Form-firstName" name="firstName" class="form-control">
-        <input type="text" id="Form-lastName" name="lastName" class="form-control">
-        <input type="text" id="Form-email2" name="email" class="form-control">
-        <input type="password" id="Form-pass2" name="password" class="form-control">
-        <input type="number" id="Form-zipcode" name="billing" class="form-control">
-        <button type="submit" id="signUp">Submit</button>
-    </form>
-</section>
+<div id="signupdiv">
+  <form class="form" method="POST" action="/api/user/create" id="signup">
+    <h3>Sign Up Form</h3>
+    <hr/>
+    <label>First Name : </label>
+    <input type="text" class="firstName"  name="firstName" placeholder="John" />
+    <label>Last Name : </label>
+    <input type="text" class="lastName" name="lastName" placeholder="Smith" />
+    <label>E-mail : </label>
+    <input type="email" class="email" name="email"  placeholder="email@gmail.com" />
+    <label>Password:</label>
+    <input type="password" class="password" name="password" placeholder="************" />
+    <label>Confirm Password: </label>
+    <input type="password" class="confirmedPassword" name="confirmedPassword" placeholder="************" />
+    <hr/>
+    <input type="submit" class="signupButton"  value="Sign up" />
+    <a href="/">
+    <input type="button" class="cancelbtn" value="Return" />
+    </a>
+    <a href="/signup">
+    <input type="button" class="clear" value="Clear" />
+    </a>
+  </form>
+</div>
