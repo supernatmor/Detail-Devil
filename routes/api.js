@@ -21,7 +21,7 @@ router.route("/detail").get(companyController.findAll);
 // Post booking info
 router.put("/booking/", function (req, res) {
     if (session) {
-        userController.createBooking(req.params.id, booking).then(res.render('booking', req.body));
+        userController.createBooking(req.params.id, booking).then(res.render('booking', { data: req.body }));
     } else {
         console.log("no session found");
     }
