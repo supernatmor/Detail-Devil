@@ -4,6 +4,7 @@ export const DBody = props =>{
   return (
 
 <div>
+    <a onClick={props.backToP}> Back </a>
     <table className="table">
               <thead>
                 <tr>
