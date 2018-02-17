@@ -7,13 +7,24 @@ const bcrypt = require("bcrypt");
 const expressSanitizer = require("express-sanitizer");
 
 // API Routes
-
+const booking = {
+    name: "xyz detail",
+    location: "charlotte",
+    package: "package 1",
+    summary: "summary",
+    price: "too much",
+    datetime: "02/17/2018 05:00"
+}
 // Route to get info from company collection
 router.route("/detail").get(companyController.findAll);
 
 // Post booking info
-router.post("/booking/:id", function (req, res) {
-    console.log(req.body);
+router.put("/booking/", function (req, res) {
+    if (session) {
+        userController.createBooking(req.params.id, booking).then(res.render('booking', req.body));
+    } else {
+        console.log("no session found");
+    }
 });
 
 // Delete Booking after scheduled time
@@ -28,50 +39,43 @@ router.delete('/booking/delete/:id', function (req, res) {
 // Create User
 //router.route("/user/create").post(userController.createUser);
 
-<<<<<<< HEAD
-router.post("/user/create", function (req, res) {
-    console.log(req.body);
-    userController.createUser(req.body);
-    res.redirect('/');
-=======
 router.post(
     "/user/create", (req, res) => {
 
-    
-    req.body.sanitized = {
-        firstName: req.sanitize(req.body.firstName),
-        lastName: req.sanitize(req.body.lastName),
-        email: req.sanitize(req.body.email),
-        password: req.sanitize(req.body.password),
-        confirmedPassword: req.sanitize(req.body.confirmedPassword)
-      };
-    
-      const {
-        firstName,
-        lastName,
-        email,
-        password,
-        confirmedPassword
-      } = req.body.sanitized;
-      
-      const newUser = {
-        firstName,
-        lastName,
-        email,
-        password
-      };
-    
-    
-    userController.createUser(newUser, (err, user) => {
-        if (err) throw err;
-        console.log(user);
-    //res.json({ user });
-      res.redirect("/");
-    });  
-    //console.log(req.body);
-    //req.session.user = user;  
->>>>>>> f566856da6420d4007f77d8b2c74863fa71a5cf6
-});
+
+        req.body.sanitized = {
+            firstName: req.sanitize(req.body.firstName),
+            lastName: req.sanitize(req.body.lastName),
+            email: req.sanitize(req.body.email),
+            password: req.sanitize(req.body.password),
+            confirmedPassword: req.sanitize(req.body.confirmedPassword)
+        };
+
+        const {
+            firstName,
+            lastName,
+            email,
+            password,
+            confirmedPassword
+        } = req.body.sanitized;
+
+        const newUser = {
+            firstName,
+            lastName,
+            email,
+            password
+        };
+
+
+        userController.createUser(newUser, (err, user) => {
+            if (err) throw err;
+            console.log(user);
+            //res.json({ user });
+            res.redirect("/");
+        });
+        //console.log(req.body);
+        //req.session.user = user;  
+    });
 
 
 // User Login
@@ -81,3 +85,5 @@ router.route("/user/login/:id").get(userController.userLogin);
 // router.route("/profile").get(userController.userProfile);
 
 module.exports = router;
+
+// DONT FORGET INDEX[0] for booking 
