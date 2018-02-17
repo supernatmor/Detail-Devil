@@ -19,28 +19,33 @@ const booking = {
 router.route("/detail").get(companyController.findAll);
 
 // Post booking info
-router.put("/booking/", function (req, res) {
-    if (session) {
-        userController.createBooking(req.params.id, booking).then(res.render('booking', { data: req.body }));
-    } else {
-        console.log("no session found");
-    }
-});
+// router.put("/booking/", function (req, res) {
+//     if (session) {
+//         userController.createBooking(req.params.id, booking).then(res.render('booking', {
+//             data: req.body
+//         }));
+//     } else {
+//         console.log("no session found");
+//     }
+// });
 
 // Delete Booking after scheduled time
-router.delete('/booking/delete/:id', function (req, res) {
-    var id = req.params.id;
-    db.get().createCollection('menu', function (err, col) {
-        col.deleteOne({ _id: new mongodb.ObjectID(id) });
-    });
-    res.json({ success: id })
-});
+// router.delete('/booking/delete/:id', function (req, res) {
+//     var id = req.params.id;
+//     db.get().createCollection('menu', function (err, col) {
+//         col.deleteOne({
+//             _id: new mongodb.ObjectID(id)
+//         });
+//     });
+//     res.json({
+//         success: id
+//     })
+// });
 
 // Create User
-//router.route("/user/create").post(userController.createUser);
 
 router.post(
-    "/user/create", (req, res) => {
+    '/user/create', (req, res) => {
 
 
         req.body.sanitized = {
@@ -69,7 +74,7 @@ router.post(
 
         userController.createUser(newUser, (err, user) => {
             if (err) throw err;
-            console.log(user);
+            //console.log(user);
             //res.json({ user });
             res.redirect("/");
         });
@@ -78,8 +83,46 @@ router.post(
     });
 
 
+
+
+
+
+
+router.post(
+    '/user/login', (req, res) => {
+        console.log("hamilton");
+
+    req.body.sanitized = {
+        email: req.sanitize(req.body.email),
+        password: req.sanitize(req.body.password)
+    };
+
+    const {
+        email,
+        password
+    } = req.body.sanitized;
+
+    const oldUser = {
+        email,
+        password
+    };
+
+    userController.userLogin(oldUser, (err, user) => {
+        if (err) throw err; 
+        else {
+            res.json({ user });
+        }
+        
+        //req.session.user = user;
+        //res.json({ message: "You were logged in correctly" })
+        
+    });
+
+});
+
+
 // User Login
-router.route("/user/login/:id").get(userController.userLogin);
+//router.route("/user/login").get(userController.userLogin);
 
 // User Profile
 // router.route("/profile").get(userController.userProfile);
@@ -87,3 +130,76 @@ router.route("/user/login/:id").get(userController.userLogin);
 module.exports = router;
 
 // DONT FORGET INDEX[0] for booking 
+
+
+
+
+// req.body.sanitized = {
+//     firstName: req.sanitize(req.body.firstName),
+//     lastName: req.sanitize(req.body.lastName),
+//     email: req.sanitize(req.body.email),
+//     password: req.sanitize(req.body.password),
+//     confirmedPassword: req.sanitize(req.body.confirmedPassword)
+//   };
+
+//   const {
+//     firstName,
+//     lastName,
+//     email,
+//     password,
+//     confirmedPassword
+//   } = req.body.sanitized;
+
+//   if (password !== confirmedPassword) {
+//     let error = new Error("Passwords don't match!");
+//     // res.render('signup', {
+//     //   error: error.message
+//     // });
+//     return;
+//   }
+
+//   const newUser = {
+//     firstName,
+//     lastName,
+//     email,
+//     password
+//   };
+
+
+// userController.createUser(newUser, (err, user) => {
+//   if (err) throw err;
+//   req.session.user = user;  
+// //   res.json({ message: "You logged in correctly" })
+//   res.redirect("/");
+// });  
+
+// });
+
+
+
+
+// router.post("/user/login", (req, res) => {
+
+// req.body.sanitized = {
+//     email: req.sanitize(req.body.email),
+//     password: req.sanitize(req.body.password)
+//   };
+
+//   const {
+//     email,
+//     password
+//   } = req.body.sanitized;
+
+//   const oldUser = {
+//     email,
+//     password
+//   };
+
+//   userController.userLogin(oldUser, (err, user) => {
+//     if (err) throw err;
+//     req.session.user = user;  
+//     //res.json({ message: "You were logged in correctly" })
+//     res.redirect("/");
+//   });  
+
+// });

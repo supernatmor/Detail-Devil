@@ -3,11 +3,23 @@ const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const bcrypt = require("bcrypt");
 const expressSanitizer = require("express-sanitizer");
-const verifyUser = require("../helpers/verify");
+//const verifyUser = require("../helpers/verify");
 
 ////////////////////GHENI'S///////////////////////////////////////////////
 
+
+async function verifyUser(email, password) {
+  const user = await db.User.findOne({ email });
+  const dbPassword = user.password;
+  const isValid = await bcrypt.compare(password, dbPassword);
+  return {
+    isValid,
+    user
+  };
+}
+
 module.exports = {
+  
   /////////////////////////////////////CREATING A NEW UESR AND POSTING TO DB/////////////////////////////
   createUser: function (newUser, returnToRoute) {
 
@@ -16,41 +28,48 @@ module.exports = {
       returnToRoute(err, user);
     });
   },
-  createBooking: function (id, booking) {
-    console.log(id);
-    console.log(booking);
-    db.User.findOneAndUpdate(
-      { _id: id },
-      {
-        $set: {
-          booking: booking
-        }
-      },
-      { new: true }
-    )
-      .then(dbModel => console.log(dbModel))
-      .catch(err => console.log(err));
-  },
+  
+  // createBooking: function (id, booking) {
+  //   console.log("id :" + id);
+  //   console.log("booking :" + booking);
+  //   db.User.findOneAndUpdate(
+  //     { _id: id },
+  //     {
+  //       $set: {
+  //         booking: booking
+  //       }
+  //     },
+  //     { new: true }
+  //   )
+  //     .then(dbModel => console.log(dbModel))
+  //     .catch(err => console.log(err));
+  // },
+  
+  
   ////////////////////////////LOGIN CONTROLLER/////////////////////////////////////////////////////
-  userLogin: async function (req, res, next) {
+  userLogin:  async (oldUser, returnToRoute) => {
+    
     const {
-      //// SAME THING FOR THIS AS PREVIOUS MIGHT NEED HELPER BUT SOME DEF IN CONTROLLER LINES 95-109
       email,
       password
-    } = req.body;
+    } = oldUser;
+    
     try {
-      const isValidObject = await verifyUser(email, password, next);
-      if (!isValidObject.isValid)
-        throw new Error("The username or password you entered is incorrect.");
-      req.session.user = isValidObject.user;
-      res.redirect("/profile");
-    } catch (error) {
-      error.message = "The username or password you entered is incorrect.";
-      res.render("login", {
-        error
-      });
-    } /// LINE 109
+      const isValidObject = await verifyUser(email, password);
+    }
+      
+      
+      let error;
+      
+      if (!isValidObject.isValid) {
+        error = new Error("Invalid request");
+      }
+
+      returnToRoute(null, isValidObject.user);
   },
+  
+  
+  
   /////////////////////////////////////////lOADING USER PROFILE//////////////////////
   userProfile: function (req, res) {
     const {
