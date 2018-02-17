@@ -20,7 +20,7 @@ export const DBody = props =>{
                   return (
                     
                     <div className="col-lg-1 col-md-1 col-sm-1">
-                    <a>|{Time}|</a>
+                    <a href="/booking">|{Time}|</a>
                     </div>
                   )
                 })}    
