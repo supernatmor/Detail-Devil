@@ -24,14 +24,13 @@ const UserSchema = new Schema({
   },
   billing: {
     type: String,
-    required: false,
-    unique: true
+    required: false
   }
 });
 
-UserSchema.pre("save", function(next) {
+UserSchema.pre("save", function (next) {
   const user = this;
-  bcrypt.hash(user.password, 10, function(err, hash) {
+  bcrypt.hash(user.password, 10, function (err, hash) {
     if (err) {
       return next(err);
     }
