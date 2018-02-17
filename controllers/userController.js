@@ -9,12 +9,27 @@ const verifyUser = require("../helpers/verify");
 
 module.exports = {
   /////////////////////////////////////CREATING A NEW UESR AND POSTING TO DB/////////////////////////////
-  createUser: function(newUser, returnToRoute) {
+  createUser: function (newUser, returnToRoute) {
 
 
-    db.User.create(newUser, function(err, user, next) {
+    db.User.create(newUser, function (err, user, next) {
       returnToRoute(err, user);
     });
+  },
+  createBooking: function (id, booking) {
+    console.log(id);
+    console.log(booking);
+    db.User.findOneAndUpdate(
+      { _id: id },
+      {
+        $set: {
+          booking: booking
+        }
+      },
+      { new: true }
+    )
+      .then(dbModel => console.log(dbModel))
+      .catch(err => console.log(err));
   },
   ////////////////////////////LOGIN CONTROLLER/////////////////////////////////////////////////////
   userLogin: async function (req, res, next) {
