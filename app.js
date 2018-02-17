@@ -11,7 +11,6 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 //////////////////////////////////////////////////////////////////////////////
-const index = require("./routes/html");
 const expressSanitizer = require("express-sanitizer");
 //const users = require('./routes/users');
 
@@ -51,6 +50,7 @@ const store = new MongoDBStore({
   uri: process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB",
   collection: "MySessions"
 });
+
 app.use(
   session({
     secret: "I love New York",

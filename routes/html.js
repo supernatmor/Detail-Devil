@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const api = require("./api");
+const api = require('./api');
 
 // GET home page
 router.get('/', function (req, res, next) {
@@ -18,8 +18,8 @@ router.get('/booking', function (req, res, next) {
 });
 
 // GET Login
-router.get("/login", function (req, res, next) {
-  res.render("login");
+router.get('/login', function (req, res, next) {
+  res.render('login');
 });
 
 // API routes
