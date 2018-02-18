@@ -29,10 +29,10 @@ module.exports = {
            .then(userExist => {
               if(userExist) {
                 let error = "This email already exists in our databases";
-                returnToRoute(error, userExist)
+                returnToRoute(error, userExist);
               } else {
-                db.User.create(newUser,  (err, user) => {
-                  returnToRoute(err, user);
+                db.User.create(newUser, (error, user) => {
+                  returnToRoute(error, user);
               });      
           }
       });

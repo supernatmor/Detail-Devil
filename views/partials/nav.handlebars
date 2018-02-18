@@ -7,7 +7,9 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">
-            <span class="logo-icon"><img src="/assets/images/burn.png"></span>
+            <span class="logo-icon">
+                <img src="/assets/images/burn.png">
+            </span>
             DETAIL DEVIL
         </a>
     </div>
@@ -28,7 +30,22 @@
             </li>
             <li>
                 {{#if name}}
-                <a>Hello, {{name}}</a>
+                <a data-toggle="dropdown">Hello, {{name}}
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li role="presentation">
+                        <a role="menuitem" href="">Profile</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem"  href="">My orders</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li role="presentation">
+                        <a role="menuitem"  href="api/user/logout">Log Out</a>
+                    </li>
+                </ul>
+
                 {{else}}
                 <a href="/login">Log In</a>
                 {{/if}}

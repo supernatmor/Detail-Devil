@@ -26,6 +26,7 @@ router.get('/login', (req, res, next) => {
   res.render('login');
 });
 
+
 // API routes
 router.use("/api", api);
 

@@ -69,10 +69,10 @@ router.post(
         if (password !== confirmedPassword) {
             let error = new Error("Passwords don't match!");
             res.render('login', {
-              error: error.message
+                error: error.message
             });
             return;
-          }
+        }
 
         const newUser = {
             firstName,
@@ -82,9 +82,11 @@ router.post(
         };
 
         userController.createUser(newUser, (error, user) => {
-            
+
             if (error) {
-                res.render('/', { error });
+                res.render('login', {
+                    error
+                });
             } else {
                 req.session.user = user;
                 res.redirect("/");
@@ -97,36 +99,49 @@ router.post(
 router.post(
     '/user/login', (req, res) => {
 
-    req.body.sanitized = {
-           email: req.sanitize(req.body.email),
-        password: req.sanitize(req.body.password)
-    };
+        req.body.sanitized = {
+            email: req.sanitize(req.body.email),
+            password: req.sanitize(req.body.password)
+        };
 
-    const {
-        email,
-        password
-    } = req.body.sanitized;
+        const {
+            email,
+            password
+        } = req.body.sanitized;
 
-    const oldUser = {
-        email,
-        password
-    };
+        const oldUser = {
+            email,
+            password
+        };
 
-    userController.userLogin(oldUser, (error, user) => {
-        
-        if (error) {
-        //req.session.error = error;           
-        res.render('login', { error } );
-        } else {
-            req.session.user = user;
-            res.redirect('/');
-        }    
-        
-        //req.session.user = user;
-        //res.json({ message: "You were logged in correctly" })
-        
+        userController.userLogin(oldUser, (error, user) => {
+
+            if (error) {
+                //req.session.error = error;           
+                res.render('login', {
+                    error
+                });
+            } else {
+                req.session.user = user;
+                res.redirect('/');
+            }
+        });
+
     });
 
+// Loging out the user
+
+router.get(
+    '/user/logout', (req, res) => {
+
+    if (req.session.user) {
+        req.session.destroy(err => {
+           if (err) return next(err);
+              res.redirect('/');
+        })
+    } else {
+            res.redirect('/');
+        }
 });
 
 // User Profile
@@ -134,4 +149,4 @@ router.post(
 
 module.exports = router;
 
-// DONT FORGET INDEX[0] for booking 
+// DONT FORGET INDEX[0] for booking
