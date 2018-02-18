@@ -4,11 +4,11 @@ const api = require('./api');
 const session = require("express-session");
 
 // GET home page
-router.get('/', function (req, res, next) {
+router.get('/',  (req, res, next) => {
 
   const namVal = req.session.user ? req.session.user.firstName : '';
  
-  res.render('index', { title: 'Home', name: namVal} );
+  res.render('index', { title: 'Home', name: namVal });
 });
 
 // GET Detailers page 
@@ -22,7 +22,7 @@ router.get('/booking', function (req, res, next) {
 });
 
 // GET Login
-router.get('/login', function (req, res, next) {
+router.get('/login', (req, res, next) => {
   res.render('login');
 });
 

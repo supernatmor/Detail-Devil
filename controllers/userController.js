@@ -5,8 +5,8 @@ const bcrypt = require("bcrypt");
 const expressSanitizer = require("express-sanitizer");
 //const verifyUser = require("../helpers/verify");
 
-////////////////////GHENI'S///////////////////////////////////////////////
 
+////////////////////GHENI'S///////////////////////////////////////////////
 
 async function verifyUser(email, password) {
   const user = await db.User.findOne({ email });
@@ -20,31 +20,40 @@ async function verifyUser(email, password) {
 
 module.exports = {
   
-  /////////////////////////////////////CREATING A NEW UESR AND POSTING TO DB/////////////////////////////
-  createUser: function (newUser, returnToRoute) {
+  ///////////////////////////CREATING A NEW UESR AND POSTING TO DB/////////////////////////////
+  createUser: (newUser, returnToRoute) => {
 
-
-    db.User.create(newUser, function (err, user, next) {
-      returnToRoute(err, user);
-    });
+    const { email } = newUser;
+    
+    db.User.findOne({ email })
+           .then(userExist => {
+              if(userExist) {
+                let error = "This email already exists in our databases";
+                returnToRoute(error, userExist)
+              } else {
+                db.User.create(newUser,  (err, user) => {
+                  returnToRoute(err, user);
+              });      
+          }
+      });
   },
   
-  // createBooking: function (id, booking) {
-  //   console.log("id :" + id);
-  //   console.log("booking :" + booking);
-  //   db.User.findOneAndUpdate(
-  //     { _id: id },
-  //     {
-  //       $set: {
-  //         booking: booking
-  //       }
-  //     },
-  //     { new: true }
-  //   )
-  //     .then(dbModel => console.log(dbModel))
-  //     .catch(err => console.log(err));
-  // },
-  
+  ////////////////////////////BOOKING CONTROLLER/////////////////////////////////////////////////////
+  createBooking: function (id, booking) {
+    console.log("id :" + id);
+    console.log("booking :" + booking);
+    db.User.findOneAndUpdate(
+      { _id: id },
+      {
+        $set: {
+          booking: booking
+        }
+      },
+      { new: true }
+    )
+      .then(dbModel => console.log(dbModel))
+      .catch(err => console.log(err));
+  },
   
   ////////////////////////////LOGIN CONTROLLER/////////////////////////////////////////////////////
   userLogin:  async (oldUser, returnToRoute, next) => {
@@ -54,16 +63,16 @@ module.exports = {
       password
     } = oldUser;
     
+    const isValidObject = await verifyUser(email, password);
+    
     let error;
-  
-      const isValidObject = await verifyUser(email, password, next);
+
       if (!isValidObject.isValid) {
         error = "Email or passwords don't match our request";
       }
+      
       returnToRoute(error, isValidObject.user);
   },
-  
-  
   
   /////////////////////////////////////////lOADING USER PROFILE//////////////////////
   userProfile: function (req, res) {

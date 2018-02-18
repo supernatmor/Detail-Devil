@@ -19,34 +19,35 @@ const booking = {
 router.route("/detail").get(companyController.findAll);
 
 // Post booking info
-// router.put("/booking/", function (req, res) {
-//     if (session) {
-//         userController.createBooking(req.params.id, booking).then(res.render('booking', {
-//             data: req.body
-//         }));
-//     } else {
-//         console.log("no session found");
-//     }
-// });
+router.put("/booking/", function (req, res) {
+    if (session) {
+        userController.createBooking(req.params.id, booking).then(res.render('booking', {
+            data: req.body
+        }));
+    } else {
+        console.log("no session found");
+    }
+});
 
-// Delete Booking after scheduled time
-// router.delete('/booking/delete/:id', function (req, res) {
-//     var id = req.params.id;
-//     db.get().createCollection('menu', function (err, col) {
-//         col.deleteOne({
-//             _id: new mongodb.ObjectID(id)
-//         });
-//     });
-//     res.json({
-//         success: id
-//     })
-// });
+//  Delete Booking after scheduled time
+
+router.delete('/booking/delete/:id', function (req, res) {
+    let id = req.params.id;
+    db.get().createCollection('menu', function (err, col) {
+        col.deleteOne({
+            _id: new mongodb.ObjectID(id)
+        });
+    });
+    res.json({
+        success: id
+    })
+});
+
 
 // Create User
 
 router.post(
     '/user/create', (req, res) => {
-
 
         req.body.sanitized = {
             firstName: req.sanitize(req.body.firstName),
@@ -64,6 +65,15 @@ router.post(
             confirmedPassword
         } = req.body.sanitized;
 
+
+        if (password !== confirmedPassword) {
+            let error = new Error("Passwords don't match!");
+            res.render('login', {
+              error: error.message
+            });
+            return;
+          }
+
         const newUser = {
             firstName,
             lastName,
@@ -71,29 +81,24 @@ router.post(
             password
         };
 
-
-        userController.createUser(newUser, (err, user) => {
-            if (err) throw err;
-            //console.log(user);
-            //res.json({ user });
-            res.redirect("/");
+        userController.createUser(newUser, (error, user) => {
+            
+            if (error) {
+                res.render('/', { error });
+            } else {
+                req.session.user = user;
+                res.redirect("/");
+            }
         });
-        //console.log(req.body);
-        //req.session.user = user;  
     });
 
-
-
-
-
-
+// Log in existing user
 
 router.post(
     '/user/login', (req, res) => {
-        console.log("hamilton");
 
     req.body.sanitized = {
-        email: req.sanitize(req.body.email),
+           email: req.sanitize(req.body.email),
         password: req.sanitize(req.body.password)
     };
 
@@ -124,86 +129,9 @@ router.post(
 
 });
 
-
-// User Login
-//router.route("/user/login").get(userController.userLogin);
-
 // User Profile
 // router.route("/profile").get(userController.userProfile);
 
 module.exports = router;
 
 // DONT FORGET INDEX[0] for booking 
-
-
-
-
-// req.body.sanitized = {
-//     firstName: req.sanitize(req.body.firstName),
-//     lastName: req.sanitize(req.body.lastName),
-//     email: req.sanitize(req.body.email),
-//     password: req.sanitize(req.body.password),
-//     confirmedPassword: req.sanitize(req.body.confirmedPassword)
-//   };
-
-//   const {
-//     firstName,
-//     lastName,
-//     email,
-//     password,
-//     confirmedPassword
-//   } = req.body.sanitized;
-
-//   if (password !== confirmedPassword) {
-//     let error = new Error("Passwords don't match!");
-//     // res.render('signup', {
-//     //   error: error.message
-//     // });
-//     return;
-//   }
-
-//   const newUser = {
-//     firstName,
-//     lastName,
-//     email,
-//     password
-//   };
-
-
-// userController.createUser(newUser, (err, user) => {
-//   if (err) throw err;
-//   req.session.user = user;  
-// //   res.json({ message: "You logged in correctly" })
-//   res.redirect("/");
-// });  
-
-// });
-
-
-
-
-// router.post("/user/login", (req, res) => {
-
-// req.body.sanitized = {
-//     email: req.sanitize(req.body.email),
-//     password: req.sanitize(req.body.password)
-//   };
-
-//   const {
-//     email,
-//     password
-//   } = req.body.sanitized;
-
-//   const oldUser = {
-//     email,
-//     password
-//   };
-
-//   userController.userLogin(oldUser, (err, user) => {
-//     if (err) throw err;
-//     req.session.user = user;  
-//     //res.json({ message: "You were logged in correctly" })
-//     res.redirect("/");
-//   });  
-
-// });
