@@ -27,7 +27,11 @@
                 <a href="/#contact">Contact Us</a>
             </li>
             <li>
+                {{#if name}}
+                <a href="">Hello, {{name}}</a>
+                {{else}}
                 <a href="/login">Log In</a>
+                {{/if}}
             </li>
         </ul>
 

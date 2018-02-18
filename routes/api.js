@@ -110,10 +110,12 @@ router.post(
     userController.userLogin(oldUser, (error, user) => {
         
         if (error) {
-            res.render('/', { error } );
-        } 
-
-        res.render('/');
+        //req.session.error = error;           
+        res.render('login', { error } );
+        } else {
+            req.session.user = user;
+            res.redirect('/');
+        }    
         
         //req.session.user = user;
         //res.json({ message: "You were logged in correctly" })

@@ -54,14 +54,13 @@ module.exports = {
       password
     } = oldUser;
     
-    try {
+    let error;
+  
       const isValidObject = await verifyUser(email, password, next);
-      if (!isValidObject.isValid) throw new Error("Email or passwords don't match request");
-      returnToRoute(null, isValidObject.user);
-    } catch(error) {
-      error.message = "Email or passwords don't match request";
-      next(error.message);
-    }  
+      if (!isValidObject.isValid) {
+        error = "Email or passwords don't match our request";
+      }
+      returnToRoute(error, isValidObject.user);
   },
   
   

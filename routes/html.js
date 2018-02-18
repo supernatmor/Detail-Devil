@@ -1,10 +1,14 @@
 var express = require('express');
 var router = express.Router();
 const api = require('./api');
+const session = require("express-session");
 
 // GET home page
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Home'} );
+
+  const namVal = req.session.user ? req.session.user.firstName : '';
+ 
+  res.render('index', { title: 'Home', name: namVal} );
 });
 
 // GET Detailers page 

@@ -56,7 +56,10 @@ app.use(
     secret: "I love New York",
     resave: true,
     saveUninitialized: true,
-    store: store
+    store: store,
+    cookie: {
+      maxAge: new Date(Date.now() + 36000)
+    }
   })
 );
 ////////////////////////////////////////////
