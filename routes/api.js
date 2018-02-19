@@ -116,8 +116,7 @@ router.post(
 
         userController.userLogin(oldUser, (error, user) => {
 
-            if (error) {
-                //req.session.error = error;           
+            if (error) {          
                 res.render('login', {
                     error
                 });

@@ -3,20 +3,7 @@ const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const bcrypt = require("bcrypt");
 const expressSanitizer = require("express-sanitizer");
-//const verifyUser = require("../helpers/verify");
-
-
-////////////////////GHENI'S///////////////////////////////////////////////
-
-async function verifyUser(email, password) {
-  const user = await db.User.findOne({ email });
-  const dbPassword = user.password;
-  const isValid = await bcrypt.compare(password, dbPassword);
-  return {
-    isValid,
-    user
-  };
-}
+const verifyUser = require("../helpers/verify");
 
 module.exports = {
   
