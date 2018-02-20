@@ -26,6 +26,10 @@ const UserSchema = new Schema({
   billing: {
     type: String,
     required: false
+  },
+  booking: {
+    type: Array,
+    required: false
   }
 });
 
