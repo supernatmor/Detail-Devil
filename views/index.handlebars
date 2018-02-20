@@ -240,15 +240,15 @@
     <h3>Sign Up Form</h3>
     <hr/>
     <label>First Name : </label>
-    <input type="text" class="firstName"  name="firstName" placeholder="John" />
+    <input type="text" class="firstName" minlength="2" required name="firstName" placeholder="John" />
     <label>Last Name : </label>
-    <input type="text" class="lastName" name="lastName" placeholder="Smith" />
+    <input type="text" class="lastName" name="lastName" minlength="2" required placeholder="Smith" />
     <label>E-mail : </label>
-    <input type="email" class="email" name="email"  placeholder="email@gmail.com" />
+    <input type="email" class="email" name="email"  required placeholder="email@gmail.com" />
     <label>Password:</label>
-    <input type="password" class="password" name="password" placeholder="************" />
+    <input type="password" class="password" name="password" required placeholder="************" />
     <label>Confirm Password: </label>
-    <input type="password" class="confirmedPassword" name="confirmedPassword" placeholder="************" />
+    <input type="password" class="confirmedPassword" required name="confirmedPassword" placeholder="************" />
     <hr/>
     <input type="submit" class="signupButton"  value="Sign up" />
     <a href="/">

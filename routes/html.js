@@ -5,6 +5,8 @@ const session = require("express-session");
 
 // GET home page
 router.get('/',  (req, res, next) => {
+  
+  console.log(req.session);
 
   const namVal = req.session.user ? req.session.user.firstName : '';
  
