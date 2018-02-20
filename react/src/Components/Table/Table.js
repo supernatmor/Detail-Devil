@@ -11,6 +11,14 @@ import API from "../../Utils/API"
 // set temp variable for packages - used to modify state
 let tempPackages = "";
 let tempVendor = "";
+let bookingInfo = {//this will hold necessary information to pass into booking page
+  name:"",
+  address: "",
+  package:"",
+  summary: "",
+  price: "",
+  datetime:""
+}
 
 class Table extends Component {
   constructor(){
@@ -19,45 +27,36 @@ class Table extends Component {
     this.state = {
       vendors: [],
       packages: "",
-      details: "",
-      bookingInfo: [{//this will hold necessary information to pass into booking page
-        name:"",
-        location: "",
-        package:"",
-        summary: "",
-        price: "",
-        datetime:""
-      }]
+      details: ""
     };
     //new variable to transition between vendors, packages, and times
     this.packageState = "";
   }
   //this function will run when clicking a book time and send bookingInfo to booking page
-  sendBookingToServer() {
-    const send = this.state.bookingInfo;
+  sendBookingToServer(time) {
+    bookingInfo.datetime = time;
+    const send = bookingInfo;
     API.bookingHelper(send);
   }
   //event handler for when a user selects a specific vendor
   //sets state for table to render all packages and package details from that vendor
   handleVendorClick(pkg, vendor) {
-    console.log('vendor that was clicked', vendor);
-    console.log('packages', pkg);
     tempPackages = pkg;
-    // console.log(vendor);
-    // console.log(name, address);
     //sets state for main component to render packages
     this.setState({
         vendors:"",
         packages: tempPackages,
-        details: "",
+        details: ""
     });
+    bookingInfo.name = vendor.Name;
+    bookingInfo.address = vendor.Address;
+    console.log('easier mode: ', bookingInfo);
     //sets packageState to the most recent packages so can revert from details if necessary
     this.packageState={
       vendors: "",
       packages: tempPackages,
       details: ""
     };
-    this.modifyBookingInfo(name, vendor.Name);
   }
   //event handler for when a user selects a specific package
   //sets state for table to render details and available times for that package
@@ -69,15 +68,10 @@ class Table extends Component {
         details: details
         }
     )
-  }
-//function to modify bookingInfo state property so it can be sent to booking page
-  modifyBookingInfo(propName, propValue) {
-    const bookingInfoCopy = Object.assign({}, this.state.bookingInfo);
-    console.log('raw booking info copy: ', bookingInfoCopy);
-    bookingInfoCopy[propName] = propValue;
-    console.log('modified info copy', bookingInfoCopy);
-    this.setState({bookingInfo: bookingInfoCopy});
-    console.log('state.bI after setstate method', this.state.bookingInfo);
+    bookingInfo.package = dtl.Name;
+    bookingInfo.summary = dtl.Description;
+    bookingInfo.price = dtl.Price;
+    console.log(bookingInfo);
   }
   //function to return to packages state from detail state
   backToPackages = () => {
@@ -121,7 +115,7 @@ class Table extends Component {
       return(
         <div className="col-lg-8 col-lg-offset-2">
         <div className="row"></div><div className="row"></div><div className="row"></div><div className="row"></div>
-        <DBody d = {this.state.details} backToPackages = {this.backToPackages} sendBookingToServer= {(send) => this.sendBookingToServer(send)}/>
+        <DBody d = {this.state.details} backToPackages = {this.backToPackages} sendBookingToServer= {(time) => this.sendBookingToServer(time)}/>
         </div>
       )
     }
