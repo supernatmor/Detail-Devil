@@ -6,6 +6,6 @@ export default {
         return axios.get("/api/detail");
     },
     bookingHelper: function(send){
-        return axios.post("/api/booking", send);
+        return axios.put("/api/booking", send);
     }
 }
