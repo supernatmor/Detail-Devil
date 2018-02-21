@@ -1,0 +1,50 @@
+<div id="account_container" class="wrapper">
+    <div id="signupdiv">
+        <form class="form" method="POST" action="/signup" id="signup">
+        <h3>Sign Up Form</h3>
+        <hr/>
+        <label>First Name : </label>
+        <input type="text" class="firstName" name="firstName" minlength="2" required placeholder="John" />
+        <label>Last Name : </label>
+        <input type="text" class="lastName" name="lastName" minlength="2" required placeholder="Smith" />
+        <label>E-mail : </label>
+        <input type="email" class="email" name="email" required placeholder="email@gmail.com" />
+        <label>Password:</label>
+        <input type="password" class="password" name="password" required minlength="4" placeholder="************" />
+        <label>Confirm Password: </label>
+        <input type="password" class="confirmedPassword" name="confirmedPassword" required minlength="4" placeholder="************"
+        />
+        <hr/>
+        <input type="submit" class="signupButton" value="Sign up" />
+        <a href="/">
+            <input type="button" class="cancelbtn" value="Return" />
+        </a>
+        <a href="/signup">
+            <input type="button" class="clear" value="Clear" />
+        </a>
+        {{#if error}}
+        <h3>{{error}}</h3>
+        {{/if}}
+    </form>
+</div>
+
+<div id="logindiv">
+    <form class="form" action="/api/user/login" method="POST" id="login">
+        <h3>Login Form</h3>
+        <hr/>
+        <label>E-mail : </label>
+        <input type="email" class="email" name="email" placeholder="myemail@gmail.com" />
+        <label>Password : </label>
+        <input type="password" class="password" name="password" placeholder="************" />
+        <hr/>
+        <input type="submit" class="loginbtn" value="Login" />
+        <a href="/">
+            <input type="button" class="cancelbtn" value="Return" />
+        </a>
+    </form>
+    <br> {{#if error}}
+    <h3>{{error}}</h3>
+    {{/if}}
+</div>
+
+</div>
