@@ -19,7 +19,6 @@ let bookingInfo = {//this will hold necessary information to pass into booking p
   price: "",
   datetime:""
 }
-
 class Table extends Component {
   constructor(){
     super();
@@ -38,7 +37,7 @@ class Table extends Component {
     const send = [];
     send.push(bookingInfo);
     console.log(send);
-    API.bookingHelper(send);
+    API.bookingHelper(send).then(API.getBooking());
   }
   //event handler for when a user selects a specific vendor
   //sets state for table to render all packages and package details from that vendor
@@ -50,6 +49,7 @@ class Table extends Component {
         packages: tempPackages,
         details: ""
     });
+    //sets properties on bookingInfo to data passed from vendorClick event
     bookingInfo.name = vendor.Name;
     bookingInfo.location = vendor.Address;
     console.log('easier mode: ', bookingInfo);
@@ -70,6 +70,7 @@ class Table extends Component {
         details: details
         }
     )
+    //sets properties on bookingInfo to data passed from packageClick event
     bookingInfo.package = dtl.Name;
     bookingInfo.summary = dtl.Description;
     bookingInfo.price = dtl.Price;
