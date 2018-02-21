@@ -19,7 +19,7 @@ export const DBody = props =>{
                 {props.d.availableTimes.map( (Time, index) => {
                   return (
                       <div className="col-lg-1 col-md-1 col-sm-1" key={index}>
-                        <a onClick={props.sendBookingToServer}>|{Time}|</a>
+                        <a onClick={() => props.sendBookingToServer(Time)}>|{Time}|</a>
                     </div>
                   )
                 })}
