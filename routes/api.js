@@ -7,21 +7,14 @@ const bcrypt = require("bcrypt");
 const expressSanitizer = require("express-sanitizer");
 
 // API Routes
-const booking = {
-    name: "xyz detail",
-    location: "charlotte",
-    package: "package 1",
-    summary: "summary",
-    price: "too much",
-    datetime: "02/17/2018 05:00"
-}
+
 // Route to get info from company collection
 router.route("/detail").get(companyController.findAll);
 
 // Post booking info
 router.put("/booking/", function (req, res) {
     if (session) {
-        userController.createBooking(req.params.id, booking).then(res.render('booking', { data: req.body }));
+        userController.createBooking(req.params.id, req.body)
     } else {
         console.log("no session found");
     }
