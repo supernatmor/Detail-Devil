@@ -13,7 +13,7 @@ let tempPackages = "";
 let tempVendor = "";
 let bookingInfo = {//this will hold necessary information to pass into booking page
   name:"",
-  address: "",
+  location: "",
   package:"",
   summary: "",
   price: "",
@@ -35,7 +35,9 @@ class Table extends Component {
   //this function will run when clicking a book time and send bookingInfo to booking page
   sendBookingToServer(time) {
     bookingInfo.datetime = time;
-    const send = bookingInfo;
+    const send = [];
+    send.push(bookingInfo);
+    console.log(send);
     API.bookingHelper(send);
   }
   //event handler for when a user selects a specific vendor
@@ -49,7 +51,7 @@ class Table extends Component {
         details: ""
     });
     bookingInfo.name = vendor.Name;
-    bookingInfo.address = vendor.Address;
+    bookingInfo.location = vendor.Address;
     console.log('easier mode: ', bookingInfo);
     //sets packageState to the most recent packages so can revert from details if necessary
     this.packageState={
