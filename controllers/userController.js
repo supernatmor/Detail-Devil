@@ -15,8 +15,8 @@ module.exports = {
     });
   },
   createBooking: function(id, booking) {
-    console.log(id);
-    console.log(booking);
+    // console.log(id);
+    // console.log(booking);
     db.User.findOneAndUpdate(
       { _id: id },
       {
@@ -26,11 +26,13 @@ module.exports = {
       },
       { new: true }
     )
-      .then(dbModel => console.log(dbModel))
+      .then(dbModel => console.log("db model: ", dbModel))
       .catch(err => console.log(err));
   },
-  getBooking: function(req, res) {
-    db.User.find(req.query)
+
+  getBooking: function(id, res) {
+    console.log("get booking id:", id);
+    db.User.findById({ _id: id })
       .then(dbModel => res.send(dbModel[0].booking[0]))
       .catch(err => res.status(422).json(err));
   },

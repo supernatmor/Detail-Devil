@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 const expressSanitizer = require("express-sanitizer");
 
 // API Routes
-const userKey = "5a8caaf7ab8c562b5ca9456d";
+const userKey = "5a8cb19e452a483d703ba8b0";
 // Route to get info from company collection
 router.route("/detail").get(companyController.findAll);
 
@@ -18,7 +18,11 @@ router.put("/booking/", function(req, res) {
   //   } else {
   //     console.log("no session found");
   //   }
+  userController.getBooking(userKey);
 });
+// router.get("/booking/", function(req, res) {
+//   userController();
+// });
 router.route("/booking").get(userController.getBooking);
 // Delete Booking after scheduled time
 router.delete("/booking/delete/:id", function(req, res) {
