@@ -9,14 +9,12 @@ const verifyUser = require("../helpers/verify");
 
 module.exports = {
   /////////////////////////////////////CREATING A NEW UESR AND POSTING TO DB/////////////////////////////
-  createUser: function (newUser, returnToRoute) {
-
-
-    db.User.create(newUser, function (err, user, next) {
+  createUser: function(newUser, returnToRoute) {
+    db.User.create(newUser, function(err, user, next) {
       returnToRoute(err, user);
     });
   },
-  createBooking: function (id, booking) {
+  createBooking: function(id, booking) {
     console.log(id);
     console.log(booking);
     db.User.findOneAndUpdate(
@@ -31,8 +29,13 @@ module.exports = {
       .then(dbModel => console.log(dbModel))
       .catch(err => console.log(err));
   },
+  getBooking: function(req, res) {
+    db.User.find(req.query)
+      .then(dbModel => res.send(dbModel[0].booking[0]))
+      .catch(err => res.status(422).json(err));
+  },
   ////////////////////////////LOGIN CONTROLLER/////////////////////////////////////////////////////
-  userLogin: async function (req, res, next) {
+  userLogin: async function(req, res, next) {
     const {
       //// SAME THING FOR THIS AS PREVIOUS MIGHT NEED HELPER BUT SOME DEF IN CONTROLLER LINES 95-109
       email,
@@ -52,7 +55,7 @@ module.exports = {
     } /// LINE 109
   },
   /////////////////////////////////////////lOADING USER PROFILE//////////////////////
-  userProfile: function (req, res) {
+  userProfile: function(req, res) {
     const {
       //// THIS PART WILL PROBABLY BE CONTROLLER FROM LINE 85-90 (WE MAY NEED TO DO UTIL HELPER)
       user

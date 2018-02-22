@@ -19,7 +19,7 @@ router.put("/booking/", function(req, res) {
   //     console.log("no session found");
   //   }
 });
-
+router.route("/booking").get(userController.getBooking);
 // Delete Booking after scheduled time
 router.delete("/booking/delete/:id", function(req, res) {
   var id = req.params.id;
