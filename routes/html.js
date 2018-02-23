@@ -34,7 +34,7 @@ router.get("/login", function(req, res, next) {
 });
 
 router.get('/signup', function (req, res, next) {
-  res.render('signup');
+  res.render('myaccount');
 });
 
 // API routes
