@@ -37,11 +37,11 @@
                     <h3 class="account_heading" id="login_heading">Login Form</h3>
                     <hr />
                     <label>E-mail : </label>
-                    <input type="email" class="email" name="email" placeholder="myemail@gmail.com" />
+                    <input type="email" class="email" name="email" minlength="2" required placeholder="myemail@gmail.com" />
                     <label>Password : </label>
-                    <input type="password" class="password" name="password" placeholder="************" />
+                    <input type="password" class="password" name="password" minlength="4" required  placeholder="************" />
                     <input type="submit" id="login_btn" class="login_btn account_btn" value="Login" />
-                    <a href="#">
+                    <a href="/account">
                         <input type="button" id="login_clear_btn" class="login_btn account_btn" value="Clear" />
                     </a>
                     <a href="/">
@@ -50,7 +50,7 @@
                 </form>
                 <br> 
                 {{#if error}}
-                  <h3>{{error}}</h3>
+                  <label>{{error}}</label>
                 {{/if}}
             </div>
         </div>
