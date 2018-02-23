@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+const key = require("../config/keys");
 mongoose.Promise = global.Promise;
 
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB"
+  "mongodb://user:password@ds239128.mlab.com:39128/detail-devil-dev"
 );
 
 const detailSeed = [

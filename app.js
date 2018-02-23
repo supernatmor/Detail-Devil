@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 ////////////////GHENI'S////////////////////
 const store = new MongoDBStore({
-  uri: process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB",
+  uri: "mongodb://user:password@ds239128.mlab.com:39128/detail-devil-dev",
   collection: "MySessions"
 });
 
@@ -77,7 +77,8 @@ app.use(function(req, res, next) {
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB"
+  process.env.MONGODB_URI ||
+    "mongodb://user:password@ds239128.mlab.com:39128/detail-devil-dev"
 );
 
 // error handler
