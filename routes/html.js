@@ -7,15 +7,12 @@ const session = require("express-session");
 
 // GET home page
 router.get("/", (req, res, next) => {
+  
   console.log(req.session);
   const namVal = req.session.user ? req.session.user.firstName : "";
 
   res.render("index", { title: "Home", name: namVal });
 });
-
-// router.get("/", function(req, res, next) {
-//   res.render("index", { title: "Home" });
-// });
 
 // GET Detailers page
 router.get("/detail", function(req, res, next) {
@@ -37,12 +34,8 @@ router.get("/booking", function(req, res) {
   });
 });
 
-// GET Login
-router.get("/login", function(req, res, next) {
-  res.render("login");
-});
 
-router.get('/signup', function (req, res, next) {
+router.get('/account', function (req, res, next) {
   res.render('myaccount');
 });
 

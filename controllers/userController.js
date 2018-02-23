@@ -8,12 +8,25 @@ const verifyUser = require("../helpers/verify");
 ////////////////////GHENI'S///////////////////////////////////////////////
 
 module.exports = {
+  
   /////////////////////////////////////CREATING A NEW UESR AND POSTING TO DB/////////////////////////////
-  createUser: function(newUser, returnToRoute) {
-    db.User.create(newUser, function(err, user, next) {
-      returnToRoute(err, user);
-    });
+  createUser: (newUser, returnToRoute) => {
+
+    const { email } = newUser;
+    
+    db.User.findOne({ email })
+           .then(userExist => {
+              if(userExist) {
+                let error = "This email already exists in our databases";
+                returnToRoute(error, userExist);
+              } else {
+                db.User.create(newUser, (error, user) => {
+                  returnToRoute(error, user);
+              });      
+          }
+      });
   },
+  
   createBooking: function(id, booking) {
     // console.log(id);
     // console.log(booking);
@@ -36,32 +49,34 @@ module.exports = {
       .then(dbModel => res.send(dbModel[0].booking[0]))
       .catch(err => res.status(422).json(err));
   },
+  
   ////////////////////////////LOGIN CONTROLLER/////////////////////////////////////////////////////
-  userLogin: async function(req, res, next) {
+  userLogin:  async (oldUser, returnToRoute, next) => {
+    
     const {
-      //// SAME THING FOR THIS AS PREVIOUS MIGHT NEED HELPER BUT SOME DEF IN CONTROLLER LINES 95-109
       email,
       password
-    } = req.body;
-    try {
-      const isValidObject = await verifyUser(email, password, next);
-      if (!isValidObject.isValid)
-        throw new Error("The username or password you entered is incorrect.");
-      req.session.user = isValidObject.user;
-      res.redirect("/profile");
-    } catch (error) {
-      error.message = "The username or password you entered is incorrect.";
-      res.render("login", {
-        error
-      });
-    } /// LINE 109
+    } = oldUser;
+    
+    const isValidObject = await verifyUser(email, password);
+    
+    let error;
+
+      if (!isValidObject.isValid) {
+        error = "The username or password you entered is incorrect.";
+      }
+      
+      returnToRoute(error, isValidObject.user);
   },
+  
   /////////////////////////////////////////lOADING USER PROFILE//////////////////////
-  userProfile: function(req, res) {
+  userProfile: (req, res) => {
+    
     const {
       //// THIS PART WILL PROBABLY BE CONTROLLER FROM LINE 85-90 (WE MAY NEED TO DO UTIL HELPER)
       user
     } = req.session;
+   
     res.render("profile", {
       user
     }); ///// LINE 90
