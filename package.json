@@ -6,7 +6,9 @@
     "start": "cross-env NODE_ENV=production nodemon bin/www",
     "dev": "cross-env NODE_ENV=development nodemon bin/www",
     "seed": "node scripts/seedDB.js",
-    "webpack": "./node_modules/.bin/webpack -w"
+    "webpack": "./node_modules/.bin/webpack -w",
+    "build": "./node_modules/.bin/webpack",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "axios": "^0.17.1",
