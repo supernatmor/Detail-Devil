@@ -17,10 +17,9 @@ router.put("/booking/", async function(req, res) {
   const userKey = req.session.user._id;
   await userController.createBooking(userKey, req.body);
   await userController.getBooking(userKey);
-
-  //   } else {
-  //     console.log("no session found");
-  //   }
+  // } else {
+  //   alert("no session");
+  // }
 });
 // router.get("/booking/", function(req, res) {
 //   userController();
