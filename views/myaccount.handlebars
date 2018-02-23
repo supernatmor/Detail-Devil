@@ -47,11 +47,12 @@
                     <a href="/">
                         <input type="button" id="login_return_btn" class="login_btn account_btn" value="Return" />
                     </a>
+                   
+                    {{#if error}}
+                    <label>{{error}}</label>
+                    {{/if}}
+                
                 </form>
-                <br> 
-                {{#if error}}
-                  <label>{{error}}</label>
-                {{/if}}
             </div>
         </div>
     </div>

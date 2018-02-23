@@ -62,11 +62,10 @@ module.exports = {
     
     let error;
 
-      if (!isValidObject.isValid) {
-        error = "The username or password you entered is incorrect.";
-      }
-      
-      returnToRoute(error, isValidObject.user);
+      if ( !isValidObject.isValid || isValidObject.error ) {
+        error = "The email or password you entered is incorrect.";
+      } 
+        returnToRoute(error, isValidObject.user); 
   },
   
   /////////////////////////////////////////lOADING USER PROFILE//////////////////////
