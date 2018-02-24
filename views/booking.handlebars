@@ -37,7 +37,7 @@
                 <span class="required-lbl">* </span>
                 <label class="control-label" for="first_name">First Name</label>
                 <div class="controls">
-                    <input id="first_name" name="first_name" type="text" placeholder="" class="form-control" required="">
+                    <input id="first_name" name="first_name" type="text" placeholder="John" class="form-control" required="">
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <span class="required-lbl">* </span>
                 <label class="control-label" for="last_name">Last Name</label>
                 <div class="controls">
-                    <input id="last_name" name="last_name" type="text" placeholder="" class="form-control" required="">
+                    <input id="last_name" name="last_name" type="text" placeholder="Doe" class="form-control" required="">
                 </div>
             </div>
         </div>
@@ -57,23 +57,23 @@
                 <span class="required-lbl">* </span>
                 <label class="control-label" for="card_number">Card Number</label>
                 <div class="controls">
-                    <input id="card_number" name="card_number" type="text" placeholder="" class="form-control" required="">
+                    <input id="card_number" name="card_number" type="text" placeholder="5555 5555 5555 5555" class="form-control" required="">
                 </div>
             </div>
         </div>
 
-        {{!-- Insert accepted card logos --}} {{!-- Insert Paypal icon? --}} {{!-- Insert EXCHANGE FOR SOUL --}}
 
-        <div class="form-group col-md-6 card-expiration">
+        <div class="form-group col-md-6">
             <div class="control-group col-md-4">
                 <span class="required-lbl">* </span>
                 <label class="control-label" for="cvv">CVV</label>
                 <div class="controls">
-                    <input id="cvv" name="cvv" type="text" placeholder="" class="form-control" required="">
+                    <input id="cvv" name="cvv" type="text" placeholder="123" class="form-control" required="">
                 </div>
             </div>
             <div class="control-group col-md-4">
                 <div class="control-group">
+                    <span class="required-lbl">* </span>
                     <label class="control-label" for="month">Exp. Month</label>
                     <div class="controls">
                         <select id="month" name="month" class="input-xlarge">
@@ -97,6 +97,7 @@
 
             <div class="control-group col-md-4">
                 <div class="control-group">
+                    <span class="required-lbl">* </span>
                     <label class="control-label" for="select_year">Exp. Year</label>
                     <div class="controls">
                         <select id="select_year" name="select_year" class="input-xlarge">
@@ -131,14 +132,14 @@
             <span class="required-lbl">* </span>
             <label class="control-label" for="address_1">Address line 1</label>
             <div class="controls">
-                <input id="address_1" name="address_1" type="text" placeholder="" class="form-control" required="">
+                <input id="address_1" name="address_1" type="text" placeholder="123 Main St" class="form-control" required="">
             </div>
         </div>
 
         <div class="form-group col-md-6">
             <label class="control-label" for="address_2">Address line 2</label>
             <div class="controls">
-                <input id="address_2" name="address_2" type="text" placeholder="" class="form-control" required="">
+                <input id="address_2" name="address_2" type="text" placeholder="Apt 4" class="form-control" required="">
             </div>
         </div>
 
@@ -220,7 +221,7 @@
             <span class="required-lbl">* </span>
             <label class="control-label" for="billing_city">City</label>
             <div class="controls">
-                <input id="billing_city" name="billing_city" type="text" placeholder="" class="form-control" required="">
+                <input id="billing_city" name="billing_city" type="text" placeholder="Charlotte" class="form-control" required="">
             </div>
         </div>
 
@@ -228,7 +229,7 @@
             <span class="required-lbl">* </span>
             <label class="control-label" for="billing_zipcode">Zip Code</label>
             <div class="controls">
-                <input id="billing_zipcode" name="billing_zipcode" type="text" placeholder="" class="form-control" required="">
+                <input id="billing_zipcode" name="billing_zipcode" type="text" placeholder="55555" class="form-control" required="">
             </div>
         </div>
 
@@ -240,14 +241,14 @@
             <span class="required-lbl">* </span>
             <label class="control-label" for="email">Email Address</label>
             <div class="controls">
-                <input id="email" name="email" type="email" placeholder="" class="form-control" required="">
+                <input id="email" name="email" type="email" placeholder="john.doe@gmail.com" class="form-control" required="">
             </div>
         </div>
 
         <div class="form-group col-md-6">
             <label class="control-label" for="phone">Phone</label>
             <div class="controls">
-                <input id="phone" name="phone" type="number" placeholder="" class="form-control" required="">
+                <input id="phone" name="phone" type="number" placeholder="(555) 555 - 5555" class="form-control" required="">
             </div>
         </div>
 
@@ -255,46 +256,47 @@
             <div class="control-group confirm-btn">
                 <label class="control-label" for="booking_btn"></label>
                 <div class="controls">
-                    <button id="booking_btn" name="booking_btn">Book it!</button>
+                    <button type="button" id="booking_btn" name="booking_btn" data-toggle="modal" data-target="#myModal">Book it!</button>
                 </div>
             </div>
         </div>
-        
-        <h4 class="disclaimer">&#x22B9;Souls not accepted as valid form of payment.</h4>
-
     </div>
+            <p class="disclaimer">&#x22B9;Souls not accepted as valid form of payment.</p>
+
 </div>
 
 
 
 
-{{!-- Confirmation modal --}} {{!--
-<div class="modal fade">
-    <div class="modal-dialog" role="document">
+{{!-- Start of Confirmation Modal and Overlay --}}
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Booking Confirmation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Booking Confirmation</h3>
             </div>
             <div class="modal-body">
-                <p>A copy of your receipt will be sent to the provided email.</p>
-                <p>Order Summary:</p>
-                <p class="bg-success">Confirmation Number: 12345678</p>
-                <p class="bg-success">Company Name: Detail Demon</p>
-                <p class="bg-success">Company Location: Concord, NC</p>
-                <p class="bg-success">Package Selected: Platinum Package</p>
-                <p class="bg-success">Package Summary: Interior and exterior cleaning using only a toothbrush. If we miss a spot, guaranteed full
-                    refund.</p>
-                <p class="bg-success">Package Price: $99</p>
-                <p class="bg-success">Scheduled Date and Time: Monday, June 9, 2018 10:00am</p>
-                <p class="bg-success">Booking Name: John Doe</p>
-                <h3 class="bg-success">Order Total: $99</h3>
+                <h5 class="email_note">A copy of your receipt will be sent to the provided email.</h5>
+                <br />
+                <h4 class="confirmation_summary">Order Summary:</h4>
+                <p class="confirmation_details"><span>Order Date:</span> Saturday, February 24, 2018 12:00PM ET</p>
+                <p class="confirmation_details"><span>Confirmation Number:</span> 12345678</p>
+                <p class="confirmation_details"><span>Company Name:</span> Detail Demon</p>
+                <p class="confirmation_details"><span>Company Location:</span> Concord, NC</p>
+                <p class="confirmation_details"><span>Package Selected:</span> Platinum Package</p>
+                <p class="confirmation_details"><span>Package Summary:</span> Interior and exterior cleaning using only a toothbrush. If we miss a spot, guaranteed full refund.</p>
+                <p class="confirmation_details"><span>Package Price:</span> $99</p>
+                <p class="confirmation_details"><span>Scheduled Date and Time:</span> Monday, June 9, 2018 10:00AM ET</p>
+                <p class="confirmation_details"><span>Booking Name:</span> John Doe</p>
+                <br />
+                <p class="confirmation_total"><span>Order Total:</span> $99</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="confirmation_btn" data-dismiss="modal">Close</button>
             </div>
         </div>
+
     </div>
-</div> --}}
+</div>         
+{{!-- ./ of Confirmation Modal and Overlay --}}

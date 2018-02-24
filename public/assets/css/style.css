@@ -159,10 +159,11 @@ a:hover {
 /*  Start of Navbar CSS*/
 .navbar-default {
     font-family: "Codystar", "Berlin Sans FB", sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     line-height: 20px;
     background-color: transparent;
     border: 0;
+    cursor: pointer;
 }
 
 .navbar-default .navbar-header .navbar-brand {
@@ -264,6 +265,10 @@ a:hover {
     background-image: url("/assets/images/neon_car_1.jpg");
     min-height: 100vh;
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
 	flex-direction: column;
     align-items: center;
 }
@@ -308,9 +313,9 @@ a:hover {
 
 .intro_section h2 {
     font-family: "Bungee Hairline", "Bauhaus 93", sans-serif;
-    color: rgba(255, 255, 255, 0.911);
+    color: rgba(255, 255, 255, 0.8);
     font-style: italic;
-    font-weight: normal;   
+    font-weight: 900;   
     font-size: 22px;
     letter-spacing: 5px;
     margin-top: 10px;
@@ -327,6 +332,8 @@ a:hover {
 .intro_section a.intro_btn {
     font-size: 20px;
     font-family: "Codystar", "Berlin Sans FB", sans-serif;
+    font-weight: normal;
+    text-decoration: none;
     letter-spacing: 10px;
     color: rgba(255, 255, 255, 0.911);
     background-color: rgba(17, 17, 17, 0.8);
@@ -337,9 +344,8 @@ a:hover {
 }
 
 .intro_section a.intro_btn:hover {
-    font-weight: 700;
     color: #fff;
-    background: #AAFFA9;/
+    background: #AAFFA9;
     background: -webkit-linear-gradient(to right, #11FFBD, #AAFFA9);
     background: linear-gradient(to right, #11FFBD, #AAFFA9);
     }
@@ -368,7 +374,7 @@ a:hover {
     font-size: 32px;
     font-family: "Bungee Hairline", "Bauhaus 93", sans-serif;
     letter-spacing: 10px;
-    font-weight: 700;
+    font-weight: 900;
 }
 /* ./Parallax CSS */
 
@@ -413,7 +419,7 @@ a:hover {
     color: #dd001ac2;
     font-size: 21px;
     letter-spacing: 2px;
-    font-weight: 700;
+    font-weight: 900;
     text-align: left;
     font-family: "Codystar", "Berlin Sans FB", sans-serif;
 }
@@ -437,7 +443,7 @@ a:hover {
 
 .testimonials_section h2{
     font-family: "Codystar", "Berlin Sans FB", sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 40px;
     margin-bottom: 45px;
     letter-spacing: 10px;
@@ -511,7 +517,7 @@ a:hover {
     color: #000;
     font-family: "Bungee Hairline", "Bauhaus 93", sans-serif;
     font-size: 50px;
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: 5px;
     line-height: 64px;
 }
@@ -520,7 +526,7 @@ a:hover {
     display: inline-block;
     padding: 20px 60px;
     font-family: "Codystar", "Berlin Sans FB", sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 26px;
     text-decoration: none;
     text-align: center;
@@ -561,7 +567,7 @@ a:hover {
 }
 
 .cta_section a.cta_btn:hover {
-    background: #AAFFA9;/
+    background: #AAFFA9;
     background: -webkit-linear-gradient(to right, #11FFBD, #AAFFA9);
     background: linear-gradient(to right, #11FFBD, #AAFFA9);
     animation: pulseGreen 1.5s cubic-bezier(0.66, 0.67, 0.83, 0.99) infinite;
@@ -611,6 +617,10 @@ a:hover {
     width: 100%;
     height: 650px;
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     justify-content: center;
     align-items: center;
 }
@@ -620,7 +630,7 @@ a:hover {
     font-size: 40px;
     letter-spacing: 7px;
     line-height: 60px;
-    font-weight: 700;
+    font-weight: 900;
     padding: 15px;
     color: #000;
     text-align: center;
@@ -633,6 +643,10 @@ a:hover {
     padding: 0 35px 35px 35px;
     position: absolute;
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     justify-content: center;
     align-items: center;
     background-color: #fff;
@@ -678,7 +692,7 @@ textarea {
     cursor: pointer;
     text-decoration: none;
     width: 100%;
-    font-weight: 700;
+    font-weight: 900;
     font-family: "Codystar", "Berlin Sans FB", sans-serif;
     font-size: 22px;
     letter-spacing: 15px;
@@ -720,7 +734,7 @@ footer {
 
 p#social_heading.txt-railway {
     font-family: "Codystar", "Berlin Sans FB", sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: 7px;
     font-size: 26px;
     line-height: 30px;
@@ -782,7 +796,7 @@ p#social_heading.txt-railway {
 .account_background {
     width: 100%;
     min-height: 100vh;
-	background: linear-gradient(-45deg, #00ff95, #00ceb2, #00b2df, blue, #8c00ff, #800080);
+	background: linear-gradient(-45deg, #01ff95, #02c7ad, #019ac0, #0084ff, #7006fc);
 	background-size: 400% 400%;
 	-webkit-animation: neonGradient 20s ease infinite;
 	-moz-animation: neonGradient 20s ease infinite;
@@ -827,14 +841,14 @@ p#social_heading.txt-railway {
 
 .account_container {
     height: 100%;
+    display: flex;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
-    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 110px 0;
+    padding: 100px 0;
 }
 
 .row {
@@ -851,11 +865,11 @@ form.account_form {
 }
 
 form#signup {
-    height: 640px;
+    height: 645px;
 }
 
 form#login {
-    height: 390px;
+    height: 395px;
 }
 
 h3.account_heading {
@@ -863,7 +877,7 @@ h3.account_heading {
     font-family: "Bungee Hairline", "Bauhaus 93", sans-serif;
     font-size: 38px;
     font-weight: 900;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
 }
 
 h3#signup_heading {
@@ -878,32 +892,43 @@ h3#login_heading {
     display: block;
     color: #fff;
     font-family: "Codystar", "Berlin Sans FB", sans-serif;
+    font-size: 16px;
     font-weight: 700;
-    letter-spacing: 3px;
-    padding: 7px 0;
+    letter-spacing: 4px;
+    padding: 10px 0;
+    margin: 0;
 }
 
 .account_form input {
     display: block;
     width: 100%;
-    padding: 5px;
+    padding: 6px 8px;
     letter-spacing: 2px;
     color: #000;
 }
 
+div.btn_container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; 
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+}
+
 input.account_btn {
-    display: inline-block;
     text-align: center;
-    width: 28%;
-    float: left;
+    width: 128px;
     padding: 10px 0;
-    margin: 30px 25px 30px 0;
+    margin: 30px 0;
     border: 0;
     color: #fff;
     font-weight: 900;
     font-size: 20px;
     font-family: "Bungee Hairline", "Bauhaus 93", sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 input.signup_btn {
@@ -946,6 +971,10 @@ input.account_btn:active {
     min-height: 100vh;
     background-image: url("/assets/images/neon_car_1.jpg");
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
 	flex-direction: column;
     align-items: center;
 }
@@ -958,6 +987,10 @@ input.account_btn:active {
     min-height: 100vh;
     color: #fff;
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
 	flex-direction: column;
     align-items: center;
 	background: linear-gradient(-45deg, #ffff6b, #fad635, #ff934c, #f8715c, #ff556c, #e60026);
@@ -1047,15 +1080,20 @@ input.account_btn:active {
     font-size: 23px;
     font-weight: 800;
     letter-spacing: 4px;
-    color: #fca79e;
+    color: #fcbab2;
+}
+
+.form-control {
+    padding: 12px;
 }
 
 label.control-label {
     font-family: "Josefin Sans", "Lucida Sans", sans-serif;
     color: #fff;
     font-size: 18px;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     margin: 0;
+    padding: 3px;
 }
 
 div.divider_bg {
@@ -1073,27 +1111,25 @@ button#booking_btn {
     cursor: pointer;
     text-decoration: none;
     width: 100%;
-    font-weight: 700;
+    font-weight: 900;
     font-family: "Bungee Hairline", "Bauhaus 93", sans-serif;
     font-size: 26px;
-    letter-spacing: 15px;
+    letter-spacing: 16px;
 	border: 0;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding: 22px 0;
     -webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
     transition: all 0.3s;
     color: #fff;
     background-color: #000;
-    border: 0;
 }
 
 button#booking_btn:hover {
     text-decoration: none;
     outline: 0;
-    background: #4CA1AF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #136a8a;
+    background: -webkit-linear-gradient(to right, #267871, #136a8a);
+    background: linear-gradient(to right, #267871, #136a8a);
 }
 
 button#booking_btn:active {
@@ -1106,23 +1142,125 @@ button#booking_btn:active {
     transform: scale(0.80);
 }
 
-h4.disclaimer {
+p.disclaimer {
     color: #fff;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.modal-content {
+    color: #000;
+    background-color: #fff;
+    font-family: "Josefin Sans", "Lucida Sans", sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding: 15px;
+}
+
+.modal-header {
+    color: #fc2868;
+    font-family: "Codystar", "Berlin Sans FB", sans-serif;
+    font-weight: 900;
+    letter-spacing: 7px;
+    text-align: center;    
+}
+
+h5.email_note {
     font-size: 14px;
-    margin-top: 50px;
+    font-style: italic;
+    text-align: center;    
+}
+
+h4.confirmation_summary {
+    text-align: center;    
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.confirmation_details span {
+    font-family: "Codystar", "Berlin Sans FB", sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #fc2868;
+}
+
+.confirmation_total {
+    text-align: center;    
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #fa4d81;
+}
+
+button#confirmation_btn {
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;
+    font-weight: 900;
+    font-family: "Bungee Hairline", "Bauhaus 93", sans-serif;
+    font-size: 22px;
+    letter-spacing: 10px;
+	border: 0;
+    padding: 10px 0;
+    -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+    transition: all 0.3s;
+    color: #fff;
+    background-color: #000;
+}
+
+button#confirmation_btn:hover {
+    text-decoration: none;
+    outline: 0;
+    background: #ff9966;
+    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966); 
+    background: linear-gradient(to right, #ff5e62, #ff9966); 
+}
+
+button#confirmation_btn:active {
+    text-decoration: none;
+    outline: 0;
+    -webkit-transform: scale(0.80);
+    -moz-transform: scale(0.80);
+    -ms-transform: scale(0.80);
+    -o-transform: scale(0.80);
+    transform: scale(0.80);
 }
 /* ./ of Booking CSS */
 
 
+
+
 /*  Media Queries */
-@media screen and (max-width: 1200px) {
-    .wrapper{
+@media screen and (min-width: 1500px){
+    #loadingOverlay {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    .wrapper {
         padding: 0 40px;
+    }
+     #loadingOverlay {
+        display: none;
+    }
+    .intro_section h1 {
+        font-size: 90px;
+        letter-spacing: 10px;
+    }
+    .glyphicon {
+        color: #fff;
     }
 }
 
 @media screen and (max-width: 992px) {
-    .initial_section .catchphrase{
+    .initial_section .catchphrase {
         text-align: center;
         margin-left: 0;
     }
@@ -1132,40 +1270,63 @@ h4.disclaimer {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1325px) {
+    .booking_container h1 {
+        font-size: 50px;
+    }
+    .intro_section h2 {
+        margin-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 1215px) {
     /*.parallax {
         background-attachment: scroll;
     } */
     .navbar-default {
-        border-bottom: 0.1px solid rgb(219, 216, 216);
-        background-color: #fff;
+        color: #fff;
+        background-color: #000;
         -webkit-transition: all .35s;
         -moz-transition: all .35s;
         transition: all .35s;
     }
+    .navbar-default .navbar-header .navbar-brand {
+        color: #fff;
+        size: 10px;
+        letter-spacing: 1px;
+    }
+    .navbar-default .nav>li>a, .navbar-default .nav>li>a:focus {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
     .glyphicon {
-        color: #000;
-	    font-size: 24px;
+        color: #fff;
+	    font-size: 16px;
     }
     .glyphicon:hover, .glyphicon:focus {
         color: #ff1313;
+        -webkit-animation: none;
     }
     .navbar-default .navbar-header .navbar-brand {
-        color: #000;
+        color: #fff;
     }
     .navbar-default .navbar-header .navbar-brand:hover,
     .navbar-default .navbar-header .navbar-brand:focus {
         color: #ff1313;
+        -webkit-animation: none;
+        background-color: #fff;
     }
     .navbar-default .nav>li>a,
     .navbar-default .nav>li>a:focus {
-        color: #000000;
+        color: #fff;
     }
     .navbar-default .nav>li>a:hover,
     .navbar-default .nav>li>a:focus:hover {
         color: #ff1313;
+        -webkit-animation: none;
+        background-color: #fff;
     }
-    /*.navbar-default .nav>li.active>a,
+    .navbar-default .nav>li.active>a,
     .navbar-default .nav>li.active>a:focus {
         color: #f8ed52 !important;
         background-color: transparent;
@@ -1173,31 +1334,69 @@ h4.disclaimer {
     .navbar-default .nav>li.active>a:hover,
     .navbar-default .nav>li.active>a:focus:hover {
         background-color: transparent;
-    } */
-    .about_section .service {
-        width: 46.66666666666667%;
-        margin-right: 6.666666666666667% !important;
     }
-    .about_section .service:nth-child(2n+2)
-    {
+    .parallax_2, .parallax_3, .parallax_4, .parallax_5 {
+        height: 100px;
+    }
+    .intro_section h2 {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+    .intro_section h2 span {
+        font-size: 25px;
+    }
+    .intro_section a.intro_btn {
+        font-size: 18px;
+    }
+    div.service_icon {
+        font-size: 16px;
+    }
+    .about_section .service {
+        font-size: 22px;
+        width: 28%;
+        margin: 20px;
+    }
+    .about_section .service:nth-child(2n+2) {
         margin-right: 0 !important;
+    }
+    .service h3 {
+        font-size: 16px;
+    }
+    .service p {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .booking_container {
+        margin: 80px 60px;
+    }
+    .order_summary {
+
+    }
+    form.account_form {
+        width: 100%;
     }
     ul.social {
         display: none;
     }
+    .rights p {
+        font-size: 10px;
+    }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 530px) {
     .about_section .service{
         width: 100%;
         margin-right: 0 !important;
     }
-    #form_div{
+    #form_div {
 		left: 3%;
 		margin-right: 3%;
 		width: 88%;
 		margin-left: 0;
 		padding-left: 3%;
 		padding-right: 3%;
-	}
+    }
+    p#social_heading.txt-railway {
+        font-size: 18px;
+    }
 }

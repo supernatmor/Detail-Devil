@@ -64,7 +64,7 @@ router.post(
             if (err) throw err;
             console.log(user);
             //res.json({ user });
-            res.redirect("/");
+            res.redirect("/detail");
         });
         //console.log(req.body);
         //req.session.user = user;  
@@ -72,7 +72,10 @@ router.post(
 
 
 // User Login
-router.route("/user/login/:id").get(userController.userLogin);
+router.get("/user/login", (req, res) => {
+    userController.userLogin;
+    res.redirect('/detail') 
+});
 
 // User Profile
 // router.route("/profile").get(userController.userProfile);

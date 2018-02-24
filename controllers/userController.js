@@ -43,12 +43,8 @@ module.exports = {
       if (!isValidObject.isValid)
         throw new Error("The username or password you entered is incorrect.");
       req.session.user = isValidObject.user;
-      res.redirect("/profile");
     } catch (error) {
       error.message = "The username or password you entered is incorrect.";
-      res.render("login", {
-        error
-      });
     } /// LINE 109
   },
   /////////////////////////////////////////lOADING USER PROFILE//////////////////////
