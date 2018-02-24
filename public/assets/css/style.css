@@ -206,6 +206,20 @@ a:hover {
   animation: none;
 }
 
+.navbar-default .navbar-nav .open .dropdown-menu > li > a,
+.navbar-default .navbar-nav .open .dropdown-menu {
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 14px;
+  letter-spacing: 5px;
+  font-weight: 700;
+  color: #fff;
+  background-color: rgb(252, 29, 29);
+  -webkit-animation: neonNav 1.5s ease-in-out infinite alternate;
+  -moz-animation: neonNav 1.5s ease-in-out infinite alternate;
+  animation: neonNav 1.5s ease-in-out infinite alternate;
+}
+
 .navbar-default.affix {
   border: 0.1px solid rgba(41, 40, 40, 0.774);
   background-color: rgba(17, 17, 17, 0.8);
@@ -991,7 +1005,7 @@ input.account_btn:active {
 } */
 
 tr:hover {
-  background-color: rgb(253, 158, 135);
+  background-color: rgb(255, 66, 66);
   color: #fff;
 }
 
@@ -1014,13 +1028,14 @@ tr:hover {
 }
 
 a {
-  color: rgb(255, 79, 35);
+  color: rgb(255, 66, 66);
   letter-spacing: 4px;
+  font-weight: 700;
   text-decoration: none;
 }
+
 a:hover {
   color: #fff;
-  letter-spacing: 6px;
 }
 
 th {
@@ -1029,16 +1044,36 @@ th {
   letter-spacing: 4px;
   font-weight: bolder;
 }
-.nat-head-row:hover {
+
+thead {
+  padding: 60px;
   background-color: rgb(240, 240, 240);
 }
-.nat-head-row {
-  padding: 60px;
+
+thead:hover {
   background-color: rgb(240, 240, 240);
 }
 
 td {
   padding: 50px;
+}
+
+div.col-lg-1.col-md-1.col-sm-1 {
+  text-align: center;
+  margin: 0 15px 15px 15px;
+  padding: 15px 0;
+}
+
+a.detail_btn {
+  margin: 30px;
+  color: #fff;
+  font-weight: 900;
+  font-family: "Codystar", "Berlin Sans FB", sans-serif;
+  letter-spacing: 5px;
+}
+
+a.detail_btn: hover {
+  color: rgb(253, 158, 135);
 }
 /* ./Detail-React CSS */
 
