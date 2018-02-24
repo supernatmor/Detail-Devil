@@ -209,9 +209,9 @@ a:hover {
 .navbar-default .navbar-nav .open .dropdown-menu > li > a,
 .navbar-default .navbar-nav .open .dropdown-menu {
   text-align: center;
-  padding: 10px 15px;
+  padding: 12px 25px;
   font-size: 14px;
-  letter-spacing: 5px;
+  letter-spacing: 10px;
   font-weight: 700;
   color: #fff;
   background-color: rgb(252, 29, 29);
@@ -1060,7 +1060,7 @@ td {
 
 div.col-lg-1.col-md-1.col-sm-1 {
   text-align: center;
-  margin: 0 15px 15px 15px;
+  margin-right: 7px;
   padding: 15px 0;
 }
 
@@ -1185,6 +1185,7 @@ a.detail_btn: hover {
   font-weight: 800;
   letter-spacing: 4px;
   color: #fcbab2;
+  text-align: center;
 }
 
 .form-control {

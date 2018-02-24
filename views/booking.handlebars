@@ -16,7 +16,8 @@
             <p>Package Summary: {{booking.summary}}</p>
             <p>Package Price: {{booking.price}}</p>
             <p>Scheduled Time: {{booking.datetime}}</p>
-            <h3>Order Total: {{booking.price}}</h3>
+            <br>
+            <p class="order_total">Order Total: {{booking.price}}</p>
             <hr/> {{/if}}
 
         </div>
@@ -280,18 +281,20 @@
                 <br />
                 <h4 class="confirmation_summary">Order Summary:</h4>
                 {{#if booking}}
-                <h2>Order Review (Not Yet Booked):</h2>
                 <p>Detailer: {{booking.name}}</p>
                 <p>Location: {{booking.location}}</p>
                 <p>Package Name: {{booking.package}}</p>
                 <p>Package Summary: {{booking.summary}}</p>
                 <p>Package Price: {{booking.price}}</p>
                 <p>Scheduled Time: {{booking.datetime}}</p>
-                <h3>Order Total: {{booking.price}}</h3>
+                <br>
+                <p class="confirmation_total">Order Total: {{booking.price}}</p>
                 <hr/> {{/if}}
             </div>
             <div class="modal-footer">
-                <button type="button" id="confirmation_btn" data-dismiss="modal">Close</button>
+                <button type="button" id="confirmation_btn" data-dismiss="modal">
+                    Close
+                </button>
             </div>
         </div>
 
