@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressSanitizer());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
 // app.use("/", index);
 //app.use('/users', users);
