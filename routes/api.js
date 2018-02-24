@@ -37,44 +37,50 @@ router.delete("/booking/delete/:id", function(req, res) {
 // Create User
 //router.route("/user/create").post(userController.createUser);
 
-router.post("/user/create", (req, res) => {
-  req.body.sanitized = {
-    firstName: req.sanitize(req.body.firstName),
-    lastName: req.sanitize(req.body.lastName),
-    email: req.sanitize(req.body.email),
-    password: req.sanitize(req.body.password),
-    confirmedPassword: req.sanitize(req.body.confirmedPassword)
-  };
+router.post(
+    "/user/create", (req, res) => {
 
-  const {
-    firstName,
-    lastName,
-    email,
-    password,
-    confirmedPassword
-  } = req.body.sanitized;
 
-  const newUser = {
-    firstName,
-    lastName,
-    email,
-    password
-  };
+        req.body.sanitized = {
+            firstName: req.sanitize(req.body.firstName),
+            lastName: req.sanitize(req.body.lastName),
+            email: req.sanitize(req.body.email),
+            password: req.sanitize(req.body.password),
+            confirmedPassword: req.sanitize(req.body.confirmedPassword)
+        };
 
-  userController.createUser(newUser, (error, user) => {
-    if (error) {
-      res.render("login", { error });
-    } else {
-      req.session.user = user;
-      res.redirect("/");
-    }
-  });
-  //console.log(req.body);
-  //req.session.user = user;
-});
+        const {
+            firstName,
+            lastName,
+            email,
+            password,
+            confirmedPassword
+        } = req.body.sanitized;
+
+        const newUser = {
+            firstName,
+            lastName,
+            email,
+            password
+        };
+
+
+        userController.createUser(newUser, (err, user) => {
+            if (err) throw err;
+            console.log(user);
+            //res.json({ user });
+            res.redirect("/detail");
+        });
+        //console.log(req.body);
+        //req.session.user = user;  
+    });
+
 
 // User Login
-router.route("/user/login/:id").get(userController.userLogin);
+router.get("/user/login", (req, res) => {
+    userController.userLogin;
+    res.redirect('/detail') 
+});
 
 // User Profile
 // router.route("/profile").get(userController.userProfile);

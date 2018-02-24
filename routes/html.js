@@ -38,11 +38,7 @@ router.get("/booking", function(req, res) {
 });
 
 // GET Login
-router.get("/login", function(req, res, next) {
-  res.render("login");
-});
-
-router.get('/signup', function (req, res, next) {
+router.get('/myaccount', function (req, res, next) {
   res.render('myaccount');
 });
 
