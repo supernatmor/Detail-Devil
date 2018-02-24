@@ -978,6 +978,31 @@ input.account_btn:active {
 	flex-direction: column;
     align-items: center;
 }
+
+.nats-table:hover {
+    font-weight: 700;
+}
+
+.nats-table {
+    cursor: pointer;
+    font-family: "Josefin Sans", "Lucida Sans", sans-serif;
+    color: #797777;
+    letter-spacing: 2px;
+    background-color: #fff;
+}
+
+.nat-header {
+    font-weight: 700;
+    letter-spacing: 5px;
+    font-family: "Bungee Hairline", "Bauhaus 93", sans-serif;
+}
+
+th {
+    font-family: "Josefin Sans", "Lucida Sans", sans-serif;
+    color: #575757;
+    letter-spacing: 3px;
+    font-weight: bolder;
+}
 /* ./Detail-React CSS */
 
 

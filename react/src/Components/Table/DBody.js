@@ -4,7 +4,7 @@ export const DBody = props =>{
   return (
 
 <div>
-    <h1 className="text-center"> Finally select from any available time to proceed to booking</h1>
+    <h1 className="text-center nat-header"> Finally select from any available time to proceed to booking</h1>
     <table className="table nats-table">
               <thead>
                 <tr>

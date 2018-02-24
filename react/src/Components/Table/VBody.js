@@ -3,14 +3,14 @@ import React from "react";
 export const VBody = props =>{
   return (
     <div>
-      <h1 className="text-center">Select from one of our quality detailing vendors</h1>
+      <h1 className="text-center nat-header">Select from one of our quality vendors</h1>
         <table className="table nats-table">
           <thead>
             <tr>
               <th scope="col" className="text-center">Vendor</th>
               <th scope="col" className="text-center">City</th>
               <th scope="col" className="text-center">Min. Price</th>
-              <th scope="col" className="text-center">Min Time</th>
+              <th scope="col" className="text-center">Min. Time</th>
             </tr>
           </thead>
           <tbody>
