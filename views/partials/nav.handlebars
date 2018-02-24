@@ -1,35 +1,50 @@
 <div class="container">
     <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+            <span class="glyphicon glyphicon-fire"></span>
+            Detail Devil
+        </a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">
-            <span class="logo-icon"><img src="/assets/images/burn.png"></span>
-            DETAIL DEVIL
-        </a>
     </div>
 
     <div class="collapse navbar-collapse" id="navbar">
         <ul class="nav navbar-nav navbar-right">
-            <li class="active">
-                <a href="/#about">About Us</a>
+            <li>
+                <a href="/#about">Who We Are</a>
             </li>
             <li>
                 <a href="/#testimonials">Testimonials</a>
             </li>
             <li>
-                <a href="/#login">Get Started</a>
-            </li>
-            <li>
                 <a href="/#contact">Contact Us</a>
             </li>
             <li>
-                <a href="/#login">Log In</a>
+                {{#if name}}
+                <a data-toggle="dropdown">Hello, {{name}}
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li role="presentation">
+                        <a role="menuitem" href="">Profile</a>
+                    </li>
+                    <li role="presentation">
+                        <a role="menuitem" href="">Bookings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li role="presentation">
+                        <a role="menuitem" href="api/user/logout">Log Out</a>
+                    </li>
+                </ul>
+            
+                {{else}}
+                <a href="/myaccount">My Account</a>
+                {{/if}}
             </li>
         </ul>
-
     </div>
 </div>

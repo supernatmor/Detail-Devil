@@ -38,8 +38,8 @@ router.get("/booking", function(req, res) {
 });
 
 // GET Login
-router.get("/login", function(req, res, next) {
-  res.render("login");
+router.get('/myaccount', function (req, res, next) {
+  res.render('myaccount');
 });
 
 // API routes
