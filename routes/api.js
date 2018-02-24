@@ -7,26 +7,31 @@ const bcrypt = require("bcrypt");
 const expressSanitizer = require("express-sanitizer");
 
 // API Routes
-
+//const userKey = "5a8cb19e452a483d703ba8b0";
 // Route to get info from company collection
 router.route("/detail").get(companyController.findAll);
 
 // Post booking info
-router.put("/booking/", function (req, res) {
-    if (session) {
-        userController.createBooking(req.params.id, req.body)
-    } else {
-        console.log("no session found");
-    }
+router.put("/booking/", async function(req, res) {
+  //if (session) {
+  const userKey = req.session.user._id;
+  await userController.createBooking(userKey, req.body);
+  await userController.getBooking(userKey);
+  // } else {
+  //   alert("no session");
+  // }
 });
-
+// router.get("/booking/", function(req, res) {
+//   userController();
+// });
+//router.route("/booking").get(userController.getBooking);
 // Delete Booking after scheduled time
-router.delete('/booking/delete/:id', function (req, res) {
-    var id = req.params.id;
-    db.get().createCollection('menu', function (err, col) {
-        col.deleteOne({ _id: new mongodb.ObjectID(id) });
-    });
-    res.json({ success: id })
+router.delete("/booking/delete/:id", function(req, res) {
+  var id = req.params.id;
+  db.get().createCollection("menu", function(err, col) {
+    col.deleteOne({ _id: new mongodb.ObjectID(id) });
+  });
+  res.json({ success: id });
 });
 
 // Create User
@@ -82,4 +87,4 @@ router.get("/user/login", (req, res) => {
 
 module.exports = router;
 
-// DONT FORGET INDEX[0] for booking 
+// DONT FORGET INDEX[0] for booking
