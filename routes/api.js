@@ -34,52 +34,59 @@ router.delete("/booking/delete/:id", function(req, res) {
   res.json({ success: id });
 });
 
+router.route("/user/logout").get((req, res) => {
+  console.log("in get route logout");
+  if (req.session.user) {
+    req.session.destroy(err => {
+      if (err) return next(err);
+      res.redirect("/");
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
 // Create User
 //router.route("/user/create").post(userController.createUser);
 
-router.post(
-    "/user/create", (req, res) => {
+router.post("/user/create", (req, res) => {
+  req.body.sanitized = {
+    firstName: req.sanitize(req.body.firstName),
+    lastName: req.sanitize(req.body.lastName),
+    email: req.sanitize(req.body.email),
+    password: req.sanitize(req.body.password),
+    confirmedPassword: req.sanitize(req.body.confirmedPassword)
+  };
 
+  const {
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmedPassword
+  } = req.body.sanitized;
 
-        req.body.sanitized = {
-            firstName: req.sanitize(req.body.firstName),
-            lastName: req.sanitize(req.body.lastName),
-            email: req.sanitize(req.body.email),
-            password: req.sanitize(req.body.password),
-            confirmedPassword: req.sanitize(req.body.confirmedPassword)
-        };
+  const newUser = {
+    firstName,
+    lastName,
+    email,
+    password
+  };
 
-        const {
-            firstName,
-            lastName,
-            email,
-            password,
-            confirmedPassword
-        } = req.body.sanitized;
-
-        const newUser = {
-            firstName,
-            lastName,
-            email,
-            password
-        };
-
-
-        userController.createUser(newUser, (err, user) => {
-            if (err) throw err;
-            console.log(user);
-            //res.json({ user });
-            res.redirect("/detail");
-        });
-        //console.log(req.body);
-        //req.session.user = user;  
-    });
-
+  userController.createUser(newUser, (err, user) => {
+    if (err) throw err;
+    console.log(user);
+    //res.json({ user });
+    res.redirect("/detail");
+  });
+  //console.log(req.body);
+  //req.session.user = user;
+});
 
 // User Login
 router.get("/user/login", (req, res) => {
-    userController.userLogin;
-    res.redirect('/detail') 
+  userController.userLogin;
+  res.redirect("/detail");
 });
 
 // User Profile
