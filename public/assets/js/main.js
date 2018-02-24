@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+  //Start of Loading Overlay
+  $(document).ready(function () {
+    setTimeout(function () {
+      $("#loadingOverlay").fadeOut();
+    }, 3000);
+  });
+  // ./ of Loading Overlay
+
   // Start of Testimonials Carousel  
   $("#carousel").carouFredSel({
     circular: true,
@@ -44,14 +52,3 @@ $(document).ready(function () {
   // ./Return to Top Function
 
 });
-
-
-
-// Overlay for Login/Signup
-// function overlayOn() {
-//         document.getElementById("overlay").style.display = "block";
-//     }
-
-// function overlayOff() {
-//         document.getElementById("overlay").style.display = "none";
-//     }
