@@ -6,8 +6,7 @@ mongoose.Promise = global.Promise;
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb://user:password@ds239128.mlab.com:39128/detail-devil-dev"
+  process.env.MONGODB_URI || "mongodb://localhost/DetailDevilDB"
 );
 
 const detailSeed = [
