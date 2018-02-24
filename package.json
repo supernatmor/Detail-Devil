@@ -8,7 +8,7 @@
     "seed": "node scripts/seedDB.js",
     "webpack": "./node_modules/.bin/webpack -w",
     "build": "./node_modules/.bin/webpack",
-    "heroku-postbuild": "npm start"
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "axios": "^0.17.1",
