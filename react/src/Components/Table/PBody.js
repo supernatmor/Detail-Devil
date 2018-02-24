@@ -3,7 +3,7 @@ import React from "react";
 export const PBody = props =>{
   return (
     <div>
-      <h1 className="text-center"> Now select a detail package</h1>
+      <h1 className="text-center nat-header"> Now select a detail package</h1>
       <table className="table nats-table">
         <thead>
           <tr>
