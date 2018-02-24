@@ -9,11 +9,26 @@ const verifyUser = require("../helpers/verify");
 
 module.exports = {
   /////////////////////////////////////CREATING A NEW UESR AND POSTING TO DB/////////////////////////////
-  createUser: function(newUser, returnToRoute) {
-    db.User.create(newUser, function(err, user, next) {
-      returnToRoute(err, user);
+
+  createUser: (newUser, returnToRoute) => {
+    const { email } = newUser;
+
+    db.User.findOne({ email }).then(userExist => {
+      if (userExist) {
+        let error = "This email already exists in our databases";
+        returnToRoute(error, userExist);
+      } else {
+        db.User.create(newUser, (error, user) => {
+          returnToRoute(error, user);
+        });
+      }
     });
   },
+  //createUser: function(newUser, returnToRoute) {
+  // db.User.create(newUser, function(err, user, next) {
+  //   returnToRoute(err, user);
+  // });
+  //},
   createBooking: function(id, booking) {
     // console.log(id);
     // console.log(booking);
@@ -37,20 +52,16 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   ////////////////////////////LOGIN CONTROLLER/////////////////////////////////////////////////////
-  userLogin: async function(req, res, next) {
-    const {
-      //// SAME THING FOR THIS AS PREVIOUS MIGHT NEED HELPER BUT SOME DEF IN CONTROLLER LINES 95-109
-      email,
-      password
-    } = req.body;
-    try {
-      const isValidObject = await verifyUser(email, password, next);
-      if (!isValidObject.isValid)
-        throw new Error("The username or password you entered is incorrect.");
-      req.session.user = isValidObject.user;
-    } catch (error) {
-      error.message = "The username or password you entered is incorrect.";
-    } /// LINE 109
+  userLogin: async (oldUser, returnToRoute, next) => {
+    const { email, password } = oldUser;
+
+    const isValidObject = await verifyUser(email, password);
+
+    let error;
+    if (!isValidObject.isValid || isValidObject.error) {
+      error = "The email or password you entered is incorrect.";
+    }
+    returnToRoute(error, isValidObject.user);
   },
   /////////////////////////////////////////lOADING USER PROFILE//////////////////////
   userProfile: function(req, res) {

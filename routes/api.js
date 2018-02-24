@@ -66,6 +66,12 @@ router.post("/user/create", (req, res) => {
     confirmedPassword
   } = req.body.sanitized;
 
+  if (password !== confirmedPassword) {
+    let err = new Error("Passwords don't match!");
+    res.render("myaccount", { err: err.message });
+    return;
+  }
+
   const newUser = {
     firstName,
     lastName,
@@ -73,20 +79,39 @@ router.post("/user/create", (req, res) => {
     password
   };
 
-  userController.createUser(newUser, (err, user) => {
-    if (err) throw err;
-    console.log(user);
-    //res.json({ user });
-    res.redirect("/detail");
+  userController.createUser(newUser, (error, user) => {
+    if (error) {
+      res.render("myaccount", { err: error });
+    } else {
+      req.session.user = user;
+      res.redirect("/");
+    }
   });
   //console.log(req.body);
   //req.session.user = user;
 });
 
 // User Login
-router.get("/user/login", (req, res) => {
-  userController.userLogin;
-  res.redirect("/detail");
+router.post("/user/login", (req, res) => {
+  req.body.sanitized = {
+    email: req.sanitize(req.body.email),
+    password: req.sanitize(req.body.password)
+  };
+  const { email, password } = req.body.sanitized;
+  const oldUser = {
+    email,
+    password
+  };
+  userController.userLogin(oldUser, (error, user) => {
+    if (error) {
+      res.render("myaccount", {
+        error
+      });
+    } else {
+      req.session.user = user;
+      res.redirect("/");
+    }
+  });
 });
 
 // User Profile

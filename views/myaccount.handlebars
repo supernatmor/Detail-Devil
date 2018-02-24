@@ -5,46 +5,54 @@
             <div class="col-sm-6">
                 <form class="account_form" method="POST" action="/api/user/create" id="signup">
                     <h3 class="account_heading" id="signup_heading">Sign Up Form</h3>
-                        <hr />
-                            <label>First Name: </label>
-                                <input type="text" class="firstName" name="firstName" minlength="2" required placeholder="John" />
-                            <label>Last Name: </label>
-                                <input type="text" class="lastName" name="lastName" minlength="2" required placeholder="Doe" />
-                            <label>E-mail: </label>
-                                <input type="email" class="email" name="email" required placeholder="john.doe@gmail.com" />
-                            <label>Password:</label>
-                                <input type="password" class="password" name="password" required minlength="4" placeholder="************" />
-                            <label>Confirm Password: </label>
-                                <input type="password" class="confirmedPassword" name="confirmedPassword" required minlength="4" placeholder="************"/>
-                            <div class="btn_container">
-                                <input type="submit" id="signup_btn" class="signup_btn account_btn" value="Sign up" />
-                                <a href="/signup"><input type="button" id="signup_clear_btn" class="signup_btn account_btn" value="Clear" /></a>
-                                <a href="/"><input type="button" id="signup_return_btn" class="signup_btn account_btn" value="Return" /></a>
-                            </div>
-                        {{#if error}}
-                        <h3>{{error}}</h3>
-                        {{/if}}
+                    <hr />
+                    <label>First Name: </label>
+                    <input type="text" class="firstName" name="firstName" minlength="2" required placeholder="John" />
+                    <label>Last Name: </label>
+                    <input type="text" class="lastName" name="lastName" minlength="2" required placeholder="Doe" />
+                    <label>E-mail: </label>
+                    <input type="email" class="email" name="email" required placeholder="john.doe@gmail.com" />
+                    <label>Password:</label>
+                    <input type="password" class="password" name="password" required minlength="4" placeholder="************" />
+                    <label>Confirm Password: </label>
+                    <input type="password" class="confirmedPassword" name="confirmedPassword" required minlength="4" placeholder="************"
+                    />
+                    <div class="btn_container">
+                        <input type="submit" id="signup_btn" class="signup_btn account_btn" value="Sign up" />
+                        <a href="/signup">
+                            <input type="button" id="signup_clear_btn" class="signup_btn account_btn" value="Clear" />
+                        </a>
+                        <a href="/">
+                            <input type="button" id="signup_return_btn" class="signup_btn account_btn" value="Return" />
+                        </a>
+                    </div>
+                    {{#if err}}
+                    <label style="text-align: center">{{err}}</label>
+                    {{/if}}
                 </form>
             </div>
 
             <div class="col-sm-6">
-                <form class="account_form" action="/api/user/login" method="GET" id="login">
+                <form class="account_form" action="/api/user/login" method="POST" id="login">
                     <h3 class="account_heading" id="login_heading">Login Form</h3>
-                        <hr />
-                            <label>E-mail: </label>
-                                <input type="email" class="email" name="email" placeholder="john.doe@gmail.com" />
-                            <label>Password: </label>
-                                <input type="password" class="password" name="password" placeholder="************" />
-                            <div class="btn_container">        
-                                <input type="submit" id="login_btn" class="login_btn account_btn" value="Login" />
-                                <a href="#"><input type="button" id="login_clear_btn" class="login_btn account_btn" value="Clear" /></a>
-                                <a href="/"><input type="button" id="login_return_btn" class="login_btn account_btn" value="Return" /></a>
-                            </div>
+                    <hr />
+                    <label>E-mail: </label>
+                    <input type="email" class="email" name="email" placeholder="john.doe@gmail.com" />
+                    <label>Password: </label>
+                    <input type="password" class="password" name="password" placeholder="************" />
+                    <div class="btn_container">
+                        <input type="submit" id="login_btn" class="login_btn account_btn" value="Login" />
+                        <a href="#">
+                            <input type="button" id="login_clear_btn" class="login_btn account_btn" value="Clear" />
+                        </a>
+                        <a href="/">
+                            <input type="button" id="login_return_btn" class="login_btn account_btn" value="Return" />
+                        </a>
+                    </div>
+                    {{#if error}}
+                    <label style="text-align: center">{{error}}</label>
+                    {{/if}}
                 </form>
-                <br> 
-                {{#if error}}
-                <h3>{{error}}</h3>
-                {{/if}}
             </div>
         </div>
     </div>
