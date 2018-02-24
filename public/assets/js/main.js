@@ -16,7 +16,7 @@ $(document).ready(function () {
     scroll: {
       items: 1,
       fx: "fade",
-      duration: 2000,
+      duration: 1000,
       pauseOnHover: true
     },
     pagination: {
