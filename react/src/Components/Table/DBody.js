@@ -4,7 +4,7 @@ export const DBody = props =>{
   return (
 
 <div>
-    <h1 className="text-center nat-header"> Finally select from any available time to proceed to booking</h1>
+    <h1 className="text-center nat-header"> Finally select from any available time to proceed to booking</h1><hr />
     <table className="table nats-table">
               <thead>
                 <tr>
@@ -19,13 +19,13 @@ export const DBody = props =>{
                 {props.d.availableTimes.map( (Time, index) => {
                   return (
                       <div className="col-lg-1 col-md-1 col-sm-1" key={index}>
-                        <a onClick={() => props.sendBookingToServer(Time)}>|{Time}|</a>
+                        <a className="nats-links" onClick={() => props.sendBookingToServer(Time)}>|{Time}|</a>
                     </div>
                   )
                 })}
               </div>
     <div className="row">
-      <a onClick={props.backToPackages}> Back to Packages</a>
+      <a className="detail_btn" onClick={props.backToPackages}> Back to Packages</a>
     </div>    
 </div>
               

@@ -979,29 +979,61 @@ input.account_btn:active {
     align-items: center;
 }
 
-.nats-table:hover {
+/* .nats-table:hover {
     font-weight: 700;
-}
+} */
+
+tr:hover {
+        background-color: rgb(253, 158, 135);
+        color: #fff;
+        }
+
 
 .nats-table {
     cursor: pointer;
     font-family: "Josefin Sans", "Lucida Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 900;
     color: #797777;
     letter-spacing: 2px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .nat-header {
-    font-weight: 700;
+    font-weight: 900;
     letter-spacing: 5px;
     font-family: "Bungee Hairline", "Bauhaus 93", sans-serif;
+    color: #fff;
+    margin-top: 120px;
+}
+
+a {
+    color: rgb(255, 79, 35);
+    letter-spacing: 4px;
+    text-decoration: none;
+}
+a:hover {
+    color: #fff;
+    letter-spacing: 6px;
 }
 
 th {
     font-family: "Josefin Sans", "Lucida Sans", sans-serif;
-    color: #575757;
-    letter-spacing: 3px;
+    color: #454545;
+    letter-spacing: 4px;
     font-weight: bolder;
+}
+.nat-head-row:hover {
+    background-color: rgb(240, 240, 240);
+
+}
+.nat-head-row {
+    padding: 60px;
+    background-color: rgb(240, 240, 240);
+}
+
+td {
+    padding: 50px;
 }
 /* ./Detail-React CSS */
 

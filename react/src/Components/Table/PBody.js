@@ -3,7 +3,7 @@ import React from "react";
 export const PBody = props =>{
   return (
     <div>
-      <h1 className="text-center nat-header"> Now select a detail package</h1>
+      <h1 className="text-center nat-header"> Now select a detail package</h1><hr />
       <table className="table nats-table">
         <thead>
           <tr>
@@ -17,7 +17,7 @@ export const PBody = props =>{
           {props.p.map( (Package, index) => {
             return (
               <tr key = {index}>
-                <td className="text-center"><a onClick={() => props.handlePackageClick(props.p[index])}>{Package.Name}</a></td>
+                <td className="text-center nats-links"><a onClick={() => props.handlePackageClick(props.p[index])}>{Package.Name}</a></td>
                 <td className="text-center">{Package.Description}</td>
                 <td className="text-center">{Package.Price}</td>
                 <td className="text-center">{Package.timeToComplete}</td>
@@ -28,7 +28,7 @@ export const PBody = props =>{
         </tbody>
       </table>
       <div className="row">
-        <a onClick={props.backToVendors}> Back to Vendors </a>
+        <a className="detail_btn"onClick={props.backToVendors}> Back to Vendors </a>
       </div>
     </div>
   );

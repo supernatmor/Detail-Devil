@@ -19366,9 +19366,10 @@ var VBody = exports.VBody = function VBody(props) {
     null,
     _react2.default.createElement(
       "h1",
-      { className: "text-center" },
-      "Select from one of our quality detailing vendors"
+      { className: "text-center nat-header" },
+      "Select from one of our quality vendors"
     ),
+    _react2.default.createElement("hr", null),
     _react2.default.createElement(
       "table",
       { className: "table nats-table" },
@@ -19377,7 +19378,7 @@ var VBody = exports.VBody = function VBody(props) {
         null,
         _react2.default.createElement(
           "tr",
-          null,
+          { className: "nat-head-row" },
           _react2.default.createElement(
             "th",
             { scope: "col", className: "text-center" },
@@ -19396,7 +19397,7 @@ var VBody = exports.VBody = function VBody(props) {
           _react2.default.createElement(
             "th",
             { scope: "col", className: "text-center" },
-            "Min Time"
+            "Min. Time"
           )
         )
       ),
@@ -19410,7 +19411,7 @@ var VBody = exports.VBody = function VBody(props) {
             { key: index },
             _react2.default.createElement(
               "td",
-              { className: "text-center" },
+              { className: "text-center nats-links" },
               _react2.default.createElement(
                 "a",
                 { onClick: function onClick() {
@@ -19467,9 +19468,10 @@ var PBody = exports.PBody = function PBody(props) {
     null,
     _react2.default.createElement(
       "h1",
-      { className: "text-center" },
+      { className: "text-center nat-header" },
       " Now select a detail package"
     ),
+    _react2.default.createElement("hr", null),
     _react2.default.createElement(
       "table",
       { className: "table nats-table" },
@@ -19510,7 +19512,7 @@ var PBody = exports.PBody = function PBody(props) {
             { key: index },
             _react2.default.createElement(
               "td",
-              { className: "text-center" },
+              { className: "text-center nats-links" },
               _react2.default.createElement(
                 "a",
                 { onClick: function onClick() {
@@ -19543,7 +19545,7 @@ var PBody = exports.PBody = function PBody(props) {
       { className: "row" },
       _react2.default.createElement(
         "a",
-        { onClick: props.backToVendors },
+        { className: "detail_btn", onClick: props.backToVendors },
         " Back to Vendors "
       )
     )
@@ -19576,9 +19578,10 @@ var DBody = exports.DBody = function DBody(props) {
     null,
     _react2.default.createElement(
       "h1",
-      { className: "text-center" },
+      { className: "text-center nat-header" },
       " Finally select from any available time to proceed to booking"
     ),
+    _react2.default.createElement("hr", null),
     _react2.default.createElement(
       "table",
       { className: "table nats-table" },
@@ -19620,7 +19623,7 @@ var DBody = exports.DBody = function DBody(props) {
           { className: "col-lg-1 col-md-1 col-sm-1", key: index },
           _react2.default.createElement(
             "a",
-            { onClick: function onClick() {
+            { className: "nats-links", onClick: function onClick() {
                 return props.sendBookingToServer(Time);
               } },
             "|",
@@ -19635,7 +19638,7 @@ var DBody = exports.DBody = function DBody(props) {
       { className: "row" },
       _react2.default.createElement(
         "a",
-        { onClick: props.backToPackages },
+        { className: "detail_btn", onClick: props.backToPackages },
         " Back to Packages"
       )
     )
@@ -19652,7 +19655,7 @@ exports.default = DBody;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _axios = __webpack_require__(43);
@@ -19662,16 +19665,16 @@ var _axios2 = _interopRequireDefault(_axios);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    getVendors: function getVendors() {
-        return _axios2.default.get("/api/detail");
-    },
-    bookingHelper: function bookingHelper(send) {
-        return _axios2.default.put("/api/booking", send);
-    },
-    getBooking: function getBooking() {
-        //ignore the man behind the curtain
-        window.location.assign("http://localhost:3000/booking");
-    }
+  getVendors: function getVendors() {
+    return _axios2.default.get("/api/detail");
+  },
+  bookingHelper: function bookingHelper(send) {
+    return _axios2.default.put("/api/booking", send);
+  },
+  getBooking: function getBooking() {
+    //ignore the man behind the curtain
+    window.location.assign("http://localhost:3000/booking");
+  }
 };
 
 /***/ }),
